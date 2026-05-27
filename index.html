@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --sg-green: #00756a; /* Verde do Logotipo */
+      --sg-green: #00756a; /* Verde oficial SGBH */
       --sg-dark: #073b34;
       --cor-certo: #2ecc71;
       --cor-errado: #d93025;
@@ -24,7 +24,7 @@
     
     body {
       min-height: 100vh;
-      background-color: var(--sg-green); /* Fundo do site igual ao logo */
+      background-color: var(--sg-green); /* Fundo total igual ao logo */
       display: flex; align-items: center; justify-content: center;
       font-family: 'Rajdhani', sans-serif; color: var(--sg-dark);
       padding: 10px; overflow: hidden;
@@ -39,20 +39,38 @@
       display: flex; flex-direction: column;
     }
 
-    /* CABEÇALHO AJUSTADO */
+    /* CABEÇALHO SEM FUNDO CINZA */
     .topo {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 15px 25px; border-bottom: 2px solid #f4f7f6; background: #fff; z-index: 10;
+      padding: 20px 25px; background: transparent; z-index: 10;
     }
-    .topo-esquerda { display: flex; align-items: center; gap: 10px; }
-    .topo-esquerda img { height: 35px; }
-    .topo-esquerda .tit { font-family: 'Orbitron'; font-size: 15px; color: var(--sg-green); font-weight: 900; letter-spacing: 1px; }
+    .topo-esquerda { display: flex; align-items: center; gap: 12px; }
+    .topo-esquerda img { height: 40px; }
+    
+    /* SAFETY GAME ILUMINADO PADRÃO GAME */
+    .topo-esquerda .tit { 
+      font-family: 'Orbitron'; 
+      font-size: 16px; 
+      color: #fff; 
+      font-weight: 900; 
+      letter-spacing: 2px;
+      text-shadow: 
+        0 0 5px #fff,
+        0 0 10px var(--sg-green),
+        0 0 20px var(--sg-green);
+      animation: gameGlow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes gameGlow {
+      from { text-shadow: 0 0 5px #fff, 0 0 10px var(--sg-green); opacity: 0.9; }
+      to { text-shadow: 0 0 10px #fff, 0 0 20px var(--cor-diamante), 0 0 30px var(--cor-diamante); opacity: 1; }
+    }
 
     .lang-toggle { display: flex; gap: 10px; }
     .lang-btn { font-size: 22px; cursor: pointer; border: none; background: none; transition: 0.3s; filter: grayscale(1) opacity(0.3); }
     .lang-btn.active { filter: grayscale(0) opacity(1); transform: scale(1.2); }
 
-    .grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,117,106,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,117,106,0.04) 1px, transparent 1px); background-size: 30px 30px; pointer-events: none; }
+    .grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,117,106,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,117,106,0.06) 1px, transparent 1px); background-size: 30px 30px; pointer-events: none; }
 
     .tela { padding: 15px 30px; flex: 1; display: flex; flex-direction: column; position: relative; z-index: 1; animation: fadeIn 0.4s ease-out; overflow-y: auto; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -74,7 +92,7 @@
     .personagem-img { width: 140px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1)); animation: flutuar 3s ease-in-out infinite; }
     @keyframes flutuar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-    /* RODAPÉ LOGO SGBH2 */
+    /* RODAPÉ SGBH2 */
     .rodape-home { margin-top: auto; padding: 20px; display: flex; flex-direction: column; align-items: center; border-top: 1px solid #f0f4f3; background: #fafafa; }
     .rodape-home img { width: 100%; max-width: 280px; height: auto; }
 
@@ -103,7 +121,6 @@
     .btn-principal:disabled { background: #ccc; cursor: not-allowed; }
     .btn-secundario { background: transparent; border: 2px solid var(--sg-green); color: var(--sg-green); font-size: 12px; margin-top: 5px; }
 
-    /* RANKING NOMES ESQUERDA, PONTOS DIREITA */
     .ranking-lista { width: 100%; margin-top: 5px; }
     .ranking-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: #f9fbfb; margin-bottom: 6px; border-radius: 15px; border: 1px solid rgba(0,0,0,0.05); font-weight: 700; }
     .rk-nome { text-align: left; flex: 1; font-size: 15px; }
@@ -131,7 +148,7 @@
 </div>
 
 <script>
-  // TRADUÇÕES
+  // TRADUÇÕES E BANCO (Resumido para o exemplo, mantenha sua lista expandida)
   const I18N = {
     pt: {
       welcome: `"Olá! Sou o <b>Vital</b>. Vou guiar você nesta jornada! Mostre seu conhecimento em <b>segurança</b>, conquiste o selo <b>DIAMANTE</b> e torne-se um <b>Agente Oficial</b>. Vamos começar?<br><span class="slogan-final">Afinal, SEGURANÇA É VITAL!"</span>`,
@@ -177,43 +194,30 @@
     }
   };
 
-  // BANCO DE DADOS (10 questões de exemplo)
   const BANCO = [
     { cat: "NR-10", q_pt: "Qual a distância mínima de segurança para aproximação de redes de 13.8kV?", q_en: "What is the minimum safety distance for approaching 13.8kV networks?", opt_pt: ["0,50m", "1,20m", "3,00m", "5,00m"], opt_en: ["0.50m", "1.20m", "3.00m", "5.00m"], ok: 1, dica_pt: "Manter a distância padrão evita o risco de arco elétrico.", dica_en: "Standard distance prevents electric arc risk." },
     { cat: "NR-06", q_pt: "O que garante legalmente a eficácia de um EPI no Brasil?", q_en: "What legally guarantees the effectiveness of PPE in Brazil?", opt_pt: ["A marca", "O preço", "O CA (Certificado de Aprovação)", "A indicação"], opt_en: ["Brand", "Price", "Approval Certificate (CA)", "Suggestion"], ok: 2, dica_pt: "O CA é o registro obrigatório do Ministério do Trabalho.", dica_en: "CA is the mandatory registry from Labor Ministry." },
     { cat: "NR-35", q_pt: "A partir de qual altura o trabalho é considerado 'em altura'?", q_en: "From what height is work considered 'at height'?", opt_pt: ["1,0m", "1,5m", "2,0m", "5,0m"], opt_en: ["1.0m", "1.5m", "2.0m", "5.0m"], ok: 2, dica_pt: "A NR-35 define 2 metros como o limite de segurança.", dica_en: "NR-35 defines 2 meters as the safety limit." },
-    { cat: "INCÊNDIO", q_pt: "Extintor de água é proibido em qual classe de fogo?", q_en: "Water extinguisher is forbidden in which fire class?", opt_pt: ["Classe A", "Classe B", "Classe C (Elétrico)", "Classe D"], opt_en: ["Class A", "Class B", "Class C (Electric)", "Class D"], ok: 2, dica_pt: "A água conduz eletricidade e causa choque.", dica_en: "Water conducts electricity and causes shock." },
-    { cat: "NR-33", q_pt: "Quem monitora o trabalho de fora do espaço confinado?", q_en: "Who monitors work from outside a confined space?", opt_pt: ["Vigia", "Gerente", "Porteiro", "Fiscal"], opt_en: ["Watchman", "Manager", "Doorman", "Inspector"], ok: 0, dica_pt: "O vigia aciona o resgate e mantém comunicação.", dica_en: "The watchman triggers rescue and maintains communication." }
+    { cat: "INCÊNDIO", q_pt: "Extintor de água é proibido em qual classe de fogo?", q_en: "Water extinguisher is forbidden in which fire class?", opt_pt: ["Classe A", "Classe B", "Classe C (Elétrico)", "Classe D"], opt_en: ["Class A", "Class B", "Class C (Electric)", "Class D"], ok: 2, dica_pt: "A água conduz eletricidade e causa choque.", dica_en: "Water conducts electricity and causes shock." }
   ];
 
   const FASES_LABEL = { pt: ["Bronze", "Prata", "Ouro", "Diamante"], en: ["Bronze", "Silver", "Gold", "Diamond"] };
   const FASES_CSS = ["badge-bronze", "badge-prata", "badge-ouro", "badge-diamante"];
 
-  let state = {
-    lang: 'pt', tela: 'inicio', nome: '', faseIdx: 0, degrau: 1, perguntaNoDegrau: 1,
-    questoesRodada: [], indexQuestaoLocal: 0, acertosFase: 0, respondido: false,
-    escolha: null, pontosTotal: 0, timer: 15, timerInt: null, vidas: 3
-  };
+  let state = { lang: 'pt', tela: 'inicio', nome: '', faseIdx: 0, degrau: 1, perguntaNoDegrau: 1, questoesRodada: [], indexQuestaoLocal: 0, acertosFase: 0, respondido: false, escolha: null, pontosTotal: 0, timer: 15, timerInt: null, vidas: 3 };
 
-  function setLang(l) {
-    state.lang = l;
-    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('btn-' + l).classList.add('active');
-    renderizar();
-  }
+  function setLang(l) { state.lang = l; document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active')); document.getElementById('btn-' + l).classList.add('active'); renderizar(); }
 
   function carregar() {
-    const s = JSON.parse(localStorage.getItem('sg_v6_final'));
+    const s = JSON.parse(localStorage.getItem('sg_v7_final'));
     if(s) { state.vidas = s.v; state.nome = s.n || ""; }
     setLang('pt');
   }
 
-  function salvar() {
-    localStorage.setItem('sg_v6_final', JSON.stringify({ v: state.vidas, d: new Date().toLocaleDateString(), n: state.nome }));
-  }
+  function salvar() { localStorage.setItem('sg_v7_final', JSON.stringify({ v: state.vidas, d: new Date().toLocaleDateString(), n: state.nome })); }
 
   function iniciar() {
-    if(state.vidas <= 0) return alert(state.lang==='pt'?'Vidas esgotadas por hoje!':'Out of lives for today!');
+    if(state.vidas <= 0) return alert(state.lang==='pt'?'Vidas esgotadas por hoje!':'Out of lives!');
     const n = document.getElementById('nomeIn').value.trim();
     if(!n) return alert(state.lang==='pt'?'Digite seu nome':'Enter your name');
     state.nome = n; salvar(); prepararFase();
@@ -255,7 +259,6 @@
     if (state.perguntaNoDegrau < 10) state.perguntaNoDegrau++;
     else { state.perguntaNoDegrau = 1; state.degrau++; }
     state.indexQuestaoLocal++;
-    // Meta de 10 p/ teste rápido, mude para 100 no real
     if(state.indexQuestaoLocal >= 10 || state.indexQuestaoLocal >= state.questoesRodada.length) {
       validarAprovacao();
     } else {
@@ -277,10 +280,10 @@
 
   function finalizar() {
     state.tela = 'final';
-    let rk = JSON.parse(localStorage.getItem('sg_colab_rank_v6')) || [];
+    let rk = JSON.parse(localStorage.getItem('sg_colab_rank_v7')) || [];
     rk.push({ n: state.nome, p: state.pontosTotal });
     rk.sort((a,b) => b.p - a.p);
-    localStorage.setItem('sg_colab_rank_v6', JSON.stringify(rk.slice(0,5)));
+    localStorage.setItem('sg_colab_rank_v7', JSON.stringify(rk.slice(0,5)));
   }
 
   function renderizar() {
@@ -304,7 +307,7 @@
     }
 
     else if(state.tela === 'ranking') {
-      const lista = JSON.parse(localStorage.getItem('sg_colab_rank_v6')) || [];
+      const lista = JSON.parse(localStorage.getItem('sg_colab_rank_v7')) || [];
       app.innerHTML = `
         <div class="tela">
           <h3 style="font-family:'Orbitron'; text-align:center; margin-bottom:20px; color:var(--sg-green)">${t.rankTit}</h3>
