@@ -6,17 +6,17 @@
   <title>Safety Game Pro – SGBH</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --sg-green: #00756a;
       --sg-dark: #073b34;
+      --cor-certo: #2ecc71;
+      --cor-errado: #d93025;
       --cor-bronze: #cd7f32;
       --cor-prata: #9ca3af;
       --cor-ouro: #fbbf24;
       --cor-diamante: #22d3ee;
-      --cor-certo: #2ecc71;
-      --cor-errado: #d93025;
       --transition: all 0.3s ease;
     }
 
@@ -30,117 +30,96 @@
     }
 
     #sg-root {
-      width: 100%; max-width: 500px; height: 850px;
-      background: #ffffff; border-radius: 30px;
+      width: 100%; max-width: 500px; height: 860px;
+      background: #ffffff; border-radius: 35px;
       border: 1px solid rgba(0, 117, 106, 0.2);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.12);
       position: relative; overflow: hidden;
       display: flex; flex-direction: column;
     }
 
     .topo {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 15px 20px; border-bottom: 2px solid #f4f7f6; background: #fff; z-index: 10;
+      padding: 15px 25px; border-bottom: 2px solid #f4f7f6; background: #fff; z-index: 10;
     }
     .topo img { height: 35px; }
     .topo .tit { font-family: 'Orbitron'; font-size: 14px; color: var(--sg-green); font-weight: 900; }
 
     .grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,117,106,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,117,106,0.04) 1px, transparent 1px); background-size: 30px 30px; pointer-events: none; }
 
-    .tela { padding: 15px 25px; flex: 1; display: flex; flex-direction: column; position: relative; z-index: 1; animation: fadeIn 0.4s ease-out; overflow-y: auto; }
-    @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+    .tela { padding: 15px 30px; flex: 1; display: flex; flex-direction: column; position: relative; z-index: 1; animation: fadeIn 0.4s ease-out; overflow-y: auto; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* FORMULÁRIO E TEXTOS */
+    .frase-vital { text-align: center; font-size: 17px; line-height: 1.5; margin: 15px 0; font-weight: 500; color: #444; }
+    .frase-vital b { color: var(--sg-green); font-weight: 700; }
+    .slogan-final { display: block; margin-top: 10px; font-family: 'Orbitron'; font-weight: 900; color: var(--sg-green); font-size: 15px; }
+
     .campo-nome {
       width: 100%; padding: 16px 25px; border-radius: 50px; border: 2px solid #e0e7e5;
       background: #f9fbfb; color: var(--sg-dark); font-family: 'Rajdhani';
       font-size: 18px; text-align: center; outline: none; transition: var(--transition);
-      font-weight: 600; margin-bottom: 15px;
+      font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.03); margin-bottom: 15px;
     }
-    .campo-nome:focus { border-color: var(--sg-green); background: #fff; }
 
-    .personagem-container { text-align: center; margin: 5px 0; }
-    .personagem-img { width: 120px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); animation: flutuar 3s ease-in-out infinite; }
-    @keyframes flutuar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    .rodape-home { margin-top: auto; padding: 20px; display: flex; flex-direction: column; align-items: center; border-top: 1px solid #f0f4f3; background: #fafafa; }
+    .rodape-home img { height: 45px; margin-bottom: 8px; }
+    .rodape-home p { font-family: 'Orbitron'; font-size: 10px; font-weight: 900; color: var(--sg-green); }
 
-    .frase-vital { text-align: center; font-size: 15px; line-height: 1.4; margin-bottom: 20px; font-weight: 600; color: var(--sg-dark); padding: 0 5px; }
-
-    /* RODAPÉ HOME */
-    .rodape-home {
-      margin-top: auto;
-      padding: 15px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border-top: 1px solid #f0f0f0;
-      width: 100%;
-      background: #fafafa;
-    }
-    .rodape-home img { height: 40px; margin-bottom: 5px; }
-    .rodape-home p { font-family: 'Orbitron'; font-size: 10px; font-weight: 900; color: var(--sg-green); letter-spacing: 1px; }
-
-    /* HUD JOGO */
-    .badge { display: inline-block; padding: 5px 15px; border-radius: 50px; font-family: 'Orbitron'; font-size: 11px; font-weight: 900; color: #fff; text-transform: uppercase; margin-bottom: 10px; }
+    .badge { display: inline-block; padding: 6px 16px; border-radius: 50px; font-family: 'Orbitron'; font-size: 11px; font-weight: 900; color: #fff; text-transform: uppercase; margin-bottom: 10px; }
     .badge-bronze { background: var(--cor-bronze); }
     .badge-prata { background: var(--cor-prata); }
     .badge-ouro { background: var(--cor-ouro); }
     .badge-diamante { background: var(--cor-diamante); box-shadow: 0 0 15px var(--cor-diamante); }
 
     .hud-carreira { display: flex; justify-content: space-between; gap: 5px; margin-bottom: 10px; }
-    .hud-box { background: #f0f4f3; padding: 8px; border-radius: 12px; text-align: center; flex: 1; border: 1px solid rgba(0,0,0,0.05); }
+    .hud-box { background: #f0f4f3; padding: 10px; border-radius: 15px; text-align: center; flex: 1; border: 1px solid rgba(0,0,0,0.05); }
     .hud-label { font-size: 8px; font-weight: 700; color: var(--sg-green); display: block; }
-    .hud-val { font-family: 'Orbitron'; font-size: 11px; }
+    .hud-val { font-family: 'Orbitron'; font-size: 12px; }
 
-    .pergunta-card { background: #f9fbfb; border-radius: 20px; padding: 20px; text-align: center; border: 1px solid rgba(0,117,106,0.1); margin-bottom: 10px; min-height: 140px; display: flex; flex-direction: column; justify-content: center; }
-    .pergunta-texto { font-size: 17px; font-weight: 700; line-height: 1.3; }
+    .pergunta-card { background: #f9fbfb; border-radius: 25px; padding: 25px; text-align: center; border: 1px solid rgba(0,117,106,0.1); margin-bottom: 15px; min-height: 150px; display: flex; flex-direction: column; justify-content: center; }
+    .pergunta-texto { font-size: 18px; font-weight: 700; line-height: 1.4; }
 
-    .opcoes-grid { display: grid; gap: 6px; }
-    .btn-opcao { background: #fff; border: 1px solid rgba(0,117,106,0.2); padding: 12px; border-radius: 12px; cursor: pointer; text-align: left; font-size: 14px; font-weight: 600; display: flex; align-items: center; transition: 0.2s; width: 100%; }
+    .opcoes-grid { display: grid; gap: 8px; }
+    .btn-opcao { background: #fff; border: 1px solid rgba(0,117,106,0.2); padding: 15px; border-radius: 15px; cursor: pointer; text-align: left; font-size: 15px; font-weight: 600; display: flex; align-items: center; transition: 0.2s; width: 100%; }
     .btn-opcao.certo { background: var(--cor-certo) !important; color: #fff; border-color: #27ae60; }
     .btn-opcao.errado { background: var(--cor-errado) !important; color: #fff; border-color: #c0392b; }
-    .letra { width: 22px; height: 22px; background: var(--sg-green); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-right: 12px; font-family: 'Orbitron'; font-size: 9px; flex-shrink: 0; }
+    .letra { width: 24px; height: 24px; background: var(--sg-green); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-right: 12px; font-family: 'Orbitron'; font-size: 10px; flex-shrink: 0; }
 
-    .btn-principal { width: 100%; padding: 16px; border-radius: 50px; border: none; background: var(--sg-green); color: #fff; font-family: 'Orbitron'; font-weight: 900; cursor: pointer; margin-top: 10px; text-transform: uppercase; }
-    .btn-principal:hover { background: var(--sg-dark); }
+    .btn-principal { width: 100%; padding: 18px; border-radius: 50px; border: none; background: var(--sg-green); color: #fff; font-family: 'Orbitron'; font-weight: 900; cursor: pointer; margin-top: 10px; text-transform: uppercase; }
+    .btn-principal:disabled { background: #ccc; cursor: not-allowed; }
     .btn-secundario { background: transparent; border: 2px solid var(--sg-green); color: var(--sg-green); font-size: 12px; margin-top: 5px; }
 
-    .timer-barra { height: 4px; background: var(--sg-green); width: 100%; transition: width 0.1s linear; margin-bottom: 10px; }
-    .rk-item { display: flex; justify-content: space-between; padding: 12px; background: #f9fbfb; margin-bottom: 5px; border-radius: 12px; border: 1px solid #eee; font-weight: 700; }
-    .dica-box { margin-top: 10px; padding: 12px; border-radius: 12px; font-size: 13px; background: #eef2f1; border-left: 5px solid var(--sg-green); }
+    .vidas-ui { font-size: 20px; text-align: center; margin-bottom: 10px; letter-spacing: 5px; }
+    .timer-barra { height: 5px; background: var(--sg-green); width: 100%; transition: width 0.1s linear; margin-bottom: 10px; border-radius: 10px; }
+    .dica-box { margin-top: 10px; padding: 15px; border-radius: 15px; font-size: 13px; background: #eef2f1; border-left: 5px solid var(--sg-green); line-height: 1.4; }
   </style>
 </head>
 <body>
 
 <div id="sg-root">
   <div class="topo">
-    <img src="logo.png" alt="SGBH">
-    <div class="tit">SAFETY GAME</div>
+    <img src="logo.png" alt="SGBH" onerror="this.style.visibility='hidden'">
+    <div class="tit" id="tit-hud">SAFETY GAME</div>
   </div>
   <div class="grid-bg"></div>
   <div id="app" style="display: contents;"></div>
 </div>
 
 <script>
-  // Banco de Dados escalável para 1000+ questões
+  // Banco de Dados escalável
   const BANCO_COMPLETO = [
-    { cat: "NR-10", q: "Qual a distância mínima de segurança para aproximação de redes de 13.8kV?", opt: ["0,50m", "1,20m", "3,00m", "5,00m"], ok: 1, dica: "Manter a distância padrão evita o risco de arco elétrico." },
-    { cat: "NR-06", q: "O que garante legalmente a eficácia de um EPI no Brasil?", opt: ["A marca", "O preço", "O Certificado de Aprovação (CA)", "A indicação do colega"], ok: 2, dica: "O CA é o registro obrigatório do órgão competente." },
-    { cat: "NR-35", q: "A partir de qual altura é obrigatório o uso de cinto paraquedista?", opt: ["1,0m", "1,5m", "2,0m", "5,0m"], ok: 2, dica: "A NR-35 define trabalho em altura acima de 2 metros." },
-    { cat: "INCÊNDIO", q: "Qual extintor NÃO deve ser usado em fogo elétrico energizado?", opt: ["CO2", "Pó Químico", "Água Pressurizada", "Halon"], ok: 2, dica: "A água conduz eletricidade e oferece risco de choque fatal." },
-    { cat: "NR-33", q: "Quem deve monitorar o trabalho de fora do espaço confinado?", opt: ["Vigia", "Gerente", "Porteiro", "Fiscal"], ok: 0, dica: "O Vigia é o responsável por acionar o plano de resgate." },
-    { cat: "CIPA", q: "Qual a duração do mandato dos membros da CIPA?", opt: ["6 meses", "1 ano", "2 anos", "3 anos"], ok: 1, dica: "O mandato é de 1 ano, permitindo uma reeleição." },
-    { cat: "SINALIZAÇÃO", q: "A cor VERDE em segurança indica:", opt: ["Pare", "Atenção", "Saída / Socorro / Segurança", "Obrigatório"], ok: 2, dica: "Verde identifica rotas de fuga e itens de primeiros socorros." },
-    { cat: "NR-12", q: "Onde deve ficar o botão de emergência de uma máquina?", opt: ["Atrás da máquina", "Em local visível e de fácil acesso", "No painel interno", "No teto"], ok: 1, dica: "Deve ser acessível para parada imediata em caso de risco." },
-    { cat: "NR-01", q: "O descumprimento das normas de segurança pelo trabalhador é:", opt: ["Opcional", "Falta grave", "Irrelevante", "Aceitável"], ok: 1, dica: "O colaborador é legalmente obrigado a seguir as normas da empresa." },
-    { cat: "EPI", q: "Luvas de raspa protegem principalmente contra:", opt: ["Eletricidade", "Químicos", "Agentes abrasivos e escoriantes", "Radiação"], ok: 2, dica: "São ideais para carregar materiais brutos e serviços mecânicos." }
-    // Adicione mais questões aqui para chegar a 1000...
+    { cat: "NR-10", q: "Qual a distância mínima de segurança para aproximação de redes de 13.8kV?", opt: ["0,50m", "1,20m", "3,00m", "5,00m"], ok: 1, dica: "Distância padrão para evitar arco elétrico." },
+    { cat: "NR-06", q: "O que garante legalmente a eficácia de um EPI no Brasil?", opt: ["A marca", "O preço", "O CA (Certificado de Aprovação)", "A indicação do colega"], ok: 2, dica: "O CA é o registro obrigatório do Ministério do Trabalho." },
+    { cat: "NR-35", q: "A partir de qual altura é obrigatório o uso de cinto paraquedista?", opt: ["1,0m", "1,5m", "2,0m", "5,0m"], ok: 2, dica: "Trabalho em altura é todo aquele acima de 2 metros." },
+    { cat: "INCÊNDIO", q: "Qual extintor NÃO deve ser usado em fogo elétrico energizado?", opt: ["CO2", "Pó Químico", "Água Pressurizada", "Halon"], ok: 2, dica: "A água conduz energia e causa choque fatal." },
+    { cat: "SINALIZAÇÃO", q: "A cor VERDE em segurança indica:", opt: ["Pare", "Cuidado", "Segurança / Saída / Socorro", "Obrigatório"], ok: 2, dica: "Verde é a cor de rotas de fuga e primeiros socorros." }
   ];
 
   const FASES = [
-    { nome: "Bronze", css: "badge-bronze" },
-    { nome: "Prata", css: "badge-prata" },
-    { nome: "Ouro", css: "badge-ouro" },
-    { nome: "Diamante", css: "badge-diamante" }
+    { n: "Bronze", c: "badge-bronze" },
+    { n: "Prata", c: "badge-prata" },
+    { n: "Ouro", c: "badge-ouro" },
+    { n: "Diamante", c: "badge-diamante" }
   ];
 
   let state = {
@@ -150,40 +129,65 @@
     degrau: 1,
     perguntaNoDegrau: 1,
     questoesRodada: [],
-    indiceQuestaoLocal: 0,
+    indexQuestao: 0,
     acertosFase: 0,
     respondido: false,
-    escolhaUsuario: null,
+    escolha: null,
     pontosTotal: 0,
     timer: 15,
-    timerInt: null
+    timerInt: null,
+    vidas: 3,
+    lastDate: ""
   };
 
-  function shuffle(array) {
-    let m = array.length, t, i;
-    while (m) {
-      i = Math.floor(Math.random() * m--);
-      t = array[m];
-      array[m] = array[i];
-      array[i] = t;
+  // Lógica de Vidas e Reset Diário
+  function carregarProgresso() {
+    const salvo = JSON.parse(localStorage.getItem('sg_user_progresso'));
+    const hoje = new Date().toLocaleDateString();
+    
+    if(salvo) {
+      state.vidas = salvo.v;
+      state.lastDate = salvo.d;
+      state.nome = salvo.n || "";
+      
+      if(state.lastDate !== hoje) {
+        state.vidas = 3; // Reset diário
+        state.lastDate = hoje;
+        salvarLocal();
+      }
+    } else {
+      state.vidas = 3;
+      state.lastDate = hoje;
     }
-    return array;
   }
 
-  function iniciar() {
+  function salvarLocal() {
+    localStorage.setItem('sg_user_progresso', JSON.stringify({
+      v: state.vidas,
+      d: state.lastDate,
+      n: state.nome
+    }));
+  }
+
+  function shuffle(array) {
+    return array.sort(() => Math.random() - 0.5);
+  }
+
+  function iniciarTrilha() {
+    if(state.vidas <= 0) return alert("Suas vidas acabaram por hoje. Volte amanhã ou atinja 100% no treinamento anterior!");
     const n = document.getElementById('nomeIn').value.trim();
-    if(!n) { alert("Por favor, digite seu nome."); return; }
+    if(!n) return alert("Digite seu nome.");
     state.nome = n;
+    salvarLocal();
     prepararFase();
   }
 
   function prepararFase() {
-    // Sorteia as 100 questões (ou o máximo disponível) para a fase
     state.questoesRodada = shuffle([...BANCO_COMPLETO]); 
     state.degrau = 1;
     state.perguntaNoDegrau = 1;
     state.acertosFase = 0;
-    state.indiceQuestaoLocal = 0;
+    state.indexQuestao = 0;
     state.respondido = false;
     state.tela = 'jogo';
     renderizar();
@@ -198,18 +202,17 @@
         state.timer -= 0.1;
         const b = document.querySelector('.timer-barra');
         if(b) b.style.width = (state.timer / 15) * 100 + '%';
-        if(state.timer <= 0) resolver(null);
+        if(state.timer <= 0) responder(null);
       }
     }, 100);
   }
 
-  function resolver(idx) {
+  function responder(idx) {
     if(state.respondido) return;
     state.respondido = true;
-    state.escolhaUsuario = idx;
+    state.escolha = idx;
     clearInterval(state.timerInt);
-    
-    const q = state.questoesRodada[state.indiceQuestaoLocal];
+    const q = state.questoesRodada[state.indexQuestao];
     if(idx === q.ok) {
       state.acertosFase++;
       state.pontosTotal += 100 + Math.round(state.timer * 5);
@@ -218,32 +221,31 @@
   }
 
   function proxima() {
-    state.indiceQuestaoLocal++;
+    if (state.perguntaNoDegrau < 10) state.perguntaNoDegrau++;
+    else { state.perguntaNoDegrau = 1; state.degrau++; }
     
-    // Lógica de degrau: 10 perguntas por degrau
-    if (state.perguntaNoDegrau < 10) {
-      state.perguntaNoDegrau++;
-    } else {
-      state.perguntaNoDegrau = 1;
-      state.degrau++;
-    }
+    state.indexQuestao++;
 
-    // Se completou as 100 perguntas da fase (10 degraus)
-    if(state.indiceQuestaoLocal >= 100 || state.indiceQuestaoLocal >= state.questoesRodada.length) {
-      validarAprovacao();
+    if(state.indexQuestao >= 10 || state.indexQuestao >= state.questoesRodada.length) {
+      validar();
     } else {
       state.respondido = false;
-      state.escolhaUsuario = null;
+      state.escolha = null;
       renderizar();
       startTimer();
     }
   }
 
-  function validarAprovacao() {
-    const total = state.indiceQuestaoLocal;
-    const media = (state.acertosFase / total) * 100;
+  function validar() {
+    const aproveitamento = (state.acertosFase / state.indexQuestao) * 100;
+    
+    // Bônus de 100%: Recupera vidas
+    if(aproveitamento === 100) {
+        state.vidas = 3;
+        salvarLocal();
+    }
 
-    if(media >= 70) {
+    if(aproveitamento >= 70) {
       if(state.faseIdx < 3) {
         state.faseIdx++;
         state.tela = 'avanco';
@@ -251,6 +253,8 @@
         finalizar();
       }
     } else {
+      state.vidas--;
+      salvarLocal();
       state.tela = 'falha';
     }
     renderizar();
@@ -258,10 +262,10 @@
 
   function finalizar() {
     state.tela = 'final';
-    let rk = JSON.parse(localStorage.getItem('sg_elite_ranking')) || [];
+    let rk = JSON.parse(localStorage.getItem('sg_rank_anual')) || [];
     rk.push({ n: state.nome, p: state.pontosTotal });
     rk.sort((a,b) => b.p - a.p);
-    localStorage.setItem('sg_elite_ranking', JSON.stringify(rk.slice(0,5)));
+    localStorage.setItem('sg_rank_anual', JSON.stringify(rk.slice(0,5)));
   }
 
   function renderizar() {
@@ -272,22 +276,26 @@
       app.innerHTML = `
         <div class="tela">
           <div class="personagem-container"><img src="vital.png" class="personagem-img"></div>
+          <div class="vidas-ui">${'❤️'.repeat(state.vidas)}${'🖤'.repeat(3 - state.vidas)}</div>
           <div class="frase-vital">
-            "Olá! Sou o Vital. Vou guiar você nesta jornada! Mostre seu conhecimento em segurança, conquiste o selo DIAMANTE e torne-se um Agente oficial. Vamos começar? Afinal, SEGURANÇA É VITAL!"
+            "Olá! Sou o <b>Vital</b>. Vou guiar você nesta jornada! Mostre seu conhecimento em <b>segurança</b>, conquiste o selo <b>DIAMANTE</b> e torne-se um <b>Agente Oficial</b>. Vamos começar?<br>
+            <span class="slogan-final">Afinal, SEGURANÇA É VITAL!"</span>
           </div>
-          <input type="text" id="nomeIn" class="campo-nome" placeholder="Digite seu Nome Completo" value="${state.nome}">
-          <button class="btn-principal" onclick="iniciar()">Iniciar</button>
+          <input type="text" id="nomeIn" class="campo-nome" placeholder="Seu Nome Completo" value="${state.nome}">
+          <button class="btn-principal" onclick="iniciarTrilha()" ${state.vidas <= 0 ? 'disabled' : ''}>
+            ${state.vidas <= 0 ? 'Vidas Esgotadas' : 'Iniciar'}
+          </button>
           <button class="btn-principal btn-secundario" onclick="state.tela='ranking'; renderizar()">Top 5 Agentes do Ano</button>
           
           <div class="rodape-home">
-            <img src="logo.png" alt="SGBH Logo">
+            <img src="logo.png" alt="SGBH">
             <p>STATE GRID BRAZIL HOLDING S.A.</p>
           </div>
         </div>`;
     }
 
     else if(state.tela === 'ranking') {
-      const lista = JSON.parse(localStorage.getItem('sg_elite_ranking')) || [];
+      const lista = JSON.parse(localStorage.getItem('sg_rank_anual')) || [];
       app.innerHTML = `
         <div class="tela">
           <h3 style="font-family:'Orbitron'; text-align:center; margin-bottom:20px; color:var(--sg-green)">AGENTES DE SEGURANÇA DO ANO</h3>
@@ -299,32 +307,26 @@
     }
 
     else if(state.tela === 'jogo') {
-      const q = state.questoesRodada[state.indiceQuestaoLocal];
+      const q = state.questoesRodada[state.indexQuestao];
       app.innerHTML = `
         <div class="tela">
-          <div style="text-align:center"><span class="badge ${f.css}">Nível ${f.nome}</span></div>
+          <div style="text-align:center"><span class="badge ${f.c}">Nível ${f.n}</span></div>
           <div class="hud-carreira">
             <div class="hud-box"><span class="hud-label">DEGRAU</span><span class="hud-val">${state.degrau}/10</span></div>
             <div class="hud-box"><span class="hud-label">QUESTÃO</span><span class="hud-val">${state.perguntaNoDegrau}/10</span></div>
-            <div class="hud-box"><span class="hud-label">ACERTOS</span><span class="hud-val">${state.acertosFase}</span></div>
+            <div class="hud-box"><span class="hud-label">VIDAS</span><span class="hud-val">${'❤️'.repeat(state.vidas)}</span></div>
           </div>
           <div class="timer-barra"></div>
-          <div class="pergunta-card">
-            <div class="pergunta-texto">${q.q}</div>
-          </div>
+          <div class="pergunta-card"><div class="pergunta-texto">${q.q}</div></div>
           <div class="opcoes-grid">
             ${q.opt.map((o,i) => {
-              let cl = '';
-              if(state.respondido) {
-                if(i === q.ok) cl = 'certo';
-                else if(i === state.escolhaUsuario) cl = 'errado';
-              }
-              return `<button class="btn-opcao ${cl}" onclick="resolver(${i})" ${state.respondido?'disabled':''}>
+              let cl = state.respondido ? (i === q.ok ? 'certo' : (state.escolha === i ? 'errado' : '')) : '';
+              return `<button class="btn-opcao ${cl}" onclick="responder(${i})" ${state.respondido?'disabled':''}>
                 <span class="letra">${String.fromCharCode(65+i)}</span> ${o}
               </button>`;
             }).join('')}
           </div>
-          ${state.respondido ? `<div class="dica-box"><b>Dica Técnica:</b> ${q.dica}</div><button class="btn-principal" onclick="proxima()">Avançar</button>` : ''}
+          ${state.respondido ? `<div class="dica-box"><b>Dica:</b> ${q.dica}</div><button class="btn-principal" onclick="proxima()">Avançar</button>` : ''}
         </div>`;
     }
 
@@ -332,10 +334,10 @@
       app.innerHTML = `
         <div class="tela" style="text-align:center; justify-content: center;">
           <div class="personagem-container"><img src="vital.png" style="width:110px"></div>
-          <h2 style="color:var(--sg-green)">EXCELENTE TRABALHO!</h2>
-          <p>Você atingiu a meta de 70% e subiu para:</p>
-          <h1 style="font-family:'Orbitron'; margin:15px 0; color:var(--sg-green)">NÍVEL ${f.nome}</h1>
-          <button class="btn-principal" onclick="prepararFase()">Iniciar Fase ${f.nome}</button>
+          <h2 style="color:var(--sg-green)">EXCELENTE!</h2>
+          <p>Você subiu para o nível:</p>
+          <h1 style="font-family:'Orbitron'; margin:20px 0">${f.n}</h1>
+          <button class="btn-principal" onclick="prepararFase()">Iniciar Fase ${f.n}</button>
         </div>`;
     }
 
@@ -343,9 +345,9 @@
       app.innerHTML = `
         <div class="tela" style="text-align:center; justify-content: center;">
           <h2 style="color:var(--cor-errado)">REVISÃO NECESSÁRIA</h2>
-          <p style="margin: 10px 0">Você não atingiu os 70 acertos mínimos nesta fase.</p>
+          <p>Você perdeu 1 vida. Restam: <b>${state.vidas}</b></p>
           <div class="personagem-container"><img src="vital.png" style="width:100px; filter:grayscale(1)"></div>
-          <button class="btn-principal" onclick="prepararFase()">Recomeçar Nível ${f.nome}</button>
+          <button class="btn-principal" onclick="prepararFase()">${state.vidas > 0 ? 'Tentar Novamente' : 'Voltar Amanhã'}</button>
         </div>`;
     }
 
@@ -353,17 +355,14 @@
       app.innerHTML = `
         <div class="tela" style="text-align:center; justify-content: center;">
           <div class="personagem-container"><img src="vital.png" style="width:130px"></div>
-          <h1 style="font-family:'Orbitron'; color:var(--cor-diamante); font-size:22px">MISSÃO CONCLUÍDA!</h1>
-          <p>Parabéns, <b>${state.nome}</b>!<br>Você agora é um Agente de Segurança Diamante.</p>
-          <div class="pergunta-card">
-            <p>Score Final de Carreira:</p>
-            <h1 style="font-size:40px; color:var(--sg-green)">${state.pontosTotal}</h1>
-          </div>
+          <h1 style="font-family:'Orbitron'; color:var(--cor-diamante)">AGENTE DIAMANTE</h1>
+          <div class="pergunta-card"><h1>${state.pontosTotal} pts</h1></div>
           <button class="btn-principal" onclick="location.reload()">Início</button>
         </div>`;
     }
   }
 
+  carregarProgresso();
   renderizar();
 </script>
 </body>
