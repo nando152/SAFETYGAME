@@ -43,14 +43,18 @@
       padding: 15px 25px; border-bottom: 2px solid #f4f7f6; background: #fff; z-index: 10;
     }
     .topo img { height: 35px; }
-    .topo .tit { font-family: 'Orbitron'; font-size: 14px; color: var(--sg-green); font-weight: 900; }
+    .topo .tit { font-family: 'Orbitron'; font-size: 14px; color: var(--sg-green); font-weight: 900; letter-spacing: 1px; }
 
     .grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,117,106,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,117,106,0.04) 1px, transparent 1px); background-size: 30px 30px; pointer-events: none; }
 
     .tela { padding: 15px 30px; flex: 1; display: flex; flex-direction: column; position: relative; z-index: 1; animation: fadeIn 0.4s ease-out; overflow-y: auto; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-    .frase-vital { text-align: center; font-size: 17px; line-height: 1.5; margin: 15px 0; font-weight: 500; color: #444; }
+    /* TEXTO VITAL PERSONALIZADO */
+    .frase-vital {
+      text-align: center; font-size: 17px; line-height: 1.6;
+      margin: 10px 0 20px 0; font-weight: 500; color: #444;
+    }
     .frase-vital b { color: var(--sg-green); font-weight: 700; }
     .slogan-final { display: block; margin-top: 10px; font-family: 'Orbitron'; font-weight: 900; color: var(--sg-green); font-size: 15px; }
 
@@ -58,25 +62,31 @@
       width: 100%; padding: 16px 25px; border-radius: 50px; border: 2px solid #e0e7e5;
       background: #f9fbfb; color: var(--sg-dark); font-family: 'Rajdhani';
       font-size: 18px; text-align: center; outline: none; transition: var(--transition);
-      font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.03); margin-bottom: 15px;
+      font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.03); margin-bottom: 20px;
     }
+    .campo-nome:focus { border-color: var(--sg-green); background: #fff; }
+
+    .personagem-container { text-align: center; margin: 10px 0; }
+    .personagem-img { width: 140px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1)); animation: flutuar 3s ease-in-out infinite; }
+    @keyframes flutuar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
     .rodape-home { margin-top: auto; padding: 20px; display: flex; flex-direction: column; align-items: center; border-top: 1px solid #f0f4f3; background: #fafafa; }
     .rodape-home img { height: 45px; margin-bottom: 8px; }
-    .rodape-home p { font-family: 'Orbitron'; font-size: 10px; font-weight: 900; color: var(--sg-green); }
+    .rodape-home p { font-family: 'Orbitron'; font-size: 10px; font-weight: 900; color: var(--sg-green); text-align: center; }
 
+    /* HUD JOGO */
     .badge { display: inline-block; padding: 6px 16px; border-radius: 50px; font-family: 'Orbitron'; font-size: 11px; font-weight: 900; color: #fff; text-transform: uppercase; margin-bottom: 10px; }
     .badge-bronze { background: var(--cor-bronze); }
     .badge-prata { background: var(--cor-prata); }
     .badge-ouro { background: var(--cor-ouro); }
     .badge-diamante { background: var(--cor-diamante); box-shadow: 0 0 15px var(--cor-diamante); }
 
-    .hud-carreira { display: flex; justify-content: space-between; gap: 5px; margin-bottom: 10px; }
+    .hud-carreira { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
     .hud-box { background: #f0f4f3; padding: 10px; border-radius: 15px; text-align: center; flex: 1; border: 1px solid rgba(0,0,0,0.05); }
-    .hud-label { font-size: 8px; font-weight: 700; color: var(--sg-green); display: block; }
+    .hud-label { font-size: 8px; font-weight: 700; color: var(--sg-green); display: block; margin-bottom: 2px; }
     .hud-val { font-family: 'Orbitron'; font-size: 12px; }
 
-    .pergunta-card { background: #f9fbfb; border-radius: 25px; padding: 25px; text-align: center; border: 1px solid rgba(0,117,106,0.1); margin-bottom: 15px; min-height: 150px; display: flex; flex-direction: column; justify-content: center; }
+    .pergunta-card { background: #f9fbfb; border-radius: 25px; padding: 25px; text-align: center; border: 1px solid rgba(0,117,106,0.1); margin-bottom: 15px; min-height: 160px; display: flex; flex-direction: column; justify-content: center; }
     .pergunta-texto { font-size: 18px; font-weight: 700; line-height: 1.4; }
 
     .opcoes-grid { display: grid; gap: 8px; }
@@ -85,11 +95,21 @@
     .btn-opcao.errado { background: var(--cor-errado) !important; color: #fff; border-color: #c0392b; }
     .letra { width: 24px; height: 24px; background: var(--sg-green); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-right: 12px; font-family: 'Orbitron'; font-size: 10px; flex-shrink: 0; }
 
-    .btn-principal { width: 100%; padding: 18px; border-radius: 50px; border: none; background: var(--sg-green); color: #fff; font-family: 'Orbitron'; font-weight: 900; cursor: pointer; margin-top: 10px; text-transform: uppercase; }
+    .btn-principal { width: 100%; padding: 18px; border-radius: 50px; border: none; background: var(--sg-green); color: #fff; font-family: 'Orbitron'; font-weight: 900; cursor: pointer; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
+    .btn-principal:hover:not(:disabled) { background: var(--sg-dark); transform: translateY(-2px); }
     .btn-principal:disabled { background: #ccc; cursor: not-allowed; }
     .btn-secundario { background: transparent; border: 2px solid var(--sg-green); color: var(--sg-green); font-size: 12px; margin-top: 5px; }
 
-    .vidas-ui { font-size: 20px; text-align: center; margin-bottom: 10px; letter-spacing: 5px; }
+    /* RANKING REESTILIZADO */
+    .ranking-lista { width: 100%; margin-top: 5px; }
+    .ranking-item {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 14px 20px; background: #f9fbfb; margin-bottom: 8px;
+      border-radius: 15px; border: 1px solid rgba(0,0,0,0.05); font-weight: 700;
+    }
+    .rk-nome { text-align: left; flex: 1; font-size: 16px; color: var(--sg-dark); }
+    .rk-score { text-align: right; font-family: 'Orbitron'; color: var(--sg-green); font-size: 15px; }
+
     .timer-barra { height: 5px; background: var(--sg-green); width: 100%; transition: width 0.1s linear; margin-bottom: 10px; border-radius: 10px; }
     .dica-box { margin-top: 10px; padding: 15px; border-radius: 15px; font-size: 13px; background: #eef2f1; border-left: 5px solid var(--sg-green); line-height: 1.4; }
   </style>
@@ -99,20 +119,25 @@
 <div id="sg-root">
   <div class="topo">
     <img src="logo.png" alt="SGBH" onerror="this.style.visibility='hidden'">
-    <div class="tit" id="tit-hud">SAFETY GAME</div>
+    <div class="tit">SAFETY GAME</div>
   </div>
   <div class="grid-bg"></div>
   <div id="app" style="display: contents;"></div>
 </div>
 
 <script>
-  // Banco de Dados escalável
+  // Banco de Dados escalável (exemplo de questões das NRs)
   const BANCO_COMPLETO = [
-    { cat: "NR-10", q: "Qual a distância mínima de segurança para aproximação de redes de 13.8kV?", opt: ["0,50m", "1,20m", "3,00m", "5,00m"], ok: 1, dica: "Distância padrão para evitar arco elétrico." },
-    { cat: "NR-06", q: "O que garante legalmente a eficácia de um EPI no Brasil?", opt: ["A marca", "O preço", "O CA (Certificado de Aprovação)", "A indicação do colega"], ok: 2, dica: "O CA é o registro obrigatório do Ministério do Trabalho." },
-    { cat: "NR-35", q: "A partir de qual altura é obrigatório o uso de cinto paraquedista?", opt: ["1,0m", "1,5m", "2,0m", "5,0m"], ok: 2, dica: "Trabalho em altura é todo aquele acima de 2 metros." },
-    { cat: "INCÊNDIO", q: "Qual extintor NÃO deve ser usado em fogo elétrico energizado?", opt: ["CO2", "Pó Químico", "Água Pressurizada", "Halon"], ok: 2, dica: "A água conduz energia e causa choque fatal." },
-    { cat: "SINALIZAÇÃO", q: "A cor VERDE em segurança indica:", opt: ["Pare", "Cuidado", "Segurança / Saída / Socorro", "Obrigatório"], ok: 2, dica: "Verde é a cor de rotas de fuga e primeiros socorros." }
+    { cat: "NR-10", q: "Qual a distância mínima de segurança para aproximação de redes de 13.8kV?", opt: ["0,50m", "1,20m", "3,00m", "5,00m"], ok: 1, dica: "Manter a distância padrão evita o risco de arco elétrico conforme a NR-10." },
+    { cat: "NR-06", q: "O que garante legalmente a eficácia de um EPI no Brasil?", opt: ["A marca famosa", "O preço elevado", "O Certificado de Aprovação (CA)", "A indicação do colega"], ok: 2, dica: "O CA é o registro obrigatório que valida o equipamento no Ministério do Trabalho." },
+    { cat: "NR-35", q: "A partir de qual altura é obrigatório o uso de cinto tipo paraquedista?", opt: ["1,0m", "1,5m", "2,0m", "5,0m"], ok: 2, dica: "Trabalhos acima de 2 metros são classificados como Trabalho em Altura pela NR-35." },
+    { cat: "INCÊNDIO", q: "Qual extintor NÃO deve ser usado em fogo elétrico energizado?", opt: ["CO2", "Pó Químico", "Água Pressurizada", "Halon"], ok: 2, dica: "A água conduz eletricidade e oferece risco de choque fatal ao operador." },
+    { cat: "SINALIZAÇÃO", q: "A cor VERDE em segurança indica o quê?", opt: ["Perigo imediato", "Cuidado e Atenção", "Segurança / Socorro / Saídas", "Obrigatoriedade"], ok: 2, dica: "Verde identifica rotas de fuga, kits de primeiros socorros e condições seguras." },
+    { cat: "NR-33", q: "Quem deve monitorar o trabalho de fora do espaço confinado?", opt: ["Vigia", "Supervisor", "Gerente", "Almoxarife"], ok: 0, dica: "O Vigia é o responsável por acionar o plano de resgate e manter a comunicação." },
+    { cat: "NR-05", q: "Qual a duração do mandato dos membros da CIPA?", opt: ["6 meses", "1 ano", "2 anos", "3 anos"], ok: 1, dica: "O mandato da CIPA é de um ano, com direito a uma reeleição." },
+    { cat: "NR-12", q: "Onde deve ficar o botão de emergência de uma máquina?", opt: ["Atrás da máquina", "Em local visível e de fácil acesso", "No painel interno", "No teto"], ok: 1, dica: "O botão deve ser acessível instantaneamente para parada em caso de risco." },
+    { cat: "NR-01", q: "O descumprimento das normas de segurança pelo trabalhador é:", opt: ["Opcional", "Falta grave", "Irrelevante", "Aceitável"], ok: 1, dica: "O colaborador é legalmente obrigado a seguir as normas de segurança da empresa." },
+    { cat: "EPI", q: "Luvas de raspa são indicadas principalmente para:", opt: ["Eletricidade", "Químicos líquidos", "Serviços mecânicos e abrasão", "Laboratórios"], ok: 2, dica: "São ideais para carregar materiais brutos e proteção contra cortes e escoriações." }
   ];
 
   const FASES = [
@@ -129,7 +154,7 @@
     degrau: 1,
     perguntaNoDegrau: 1,
     questoesRodada: [],
-    indexQuestao: 0,
+    indexQuestaoLocal: 0,
     acertosFase: 0,
     respondido: false,
     escolha: null,
@@ -140,21 +165,14 @@
     lastDate: ""
   };
 
-  // Lógica de Vidas e Reset Diário
   function carregarProgresso() {
-    const salvo = JSON.parse(localStorage.getItem('sg_user_progresso'));
+    const salvo = JSON.parse(localStorage.getItem('sg_v3_prog'));
     const hoje = new Date().toLocaleDateString();
-    
     if(salvo) {
       state.vidas = salvo.v;
       state.lastDate = salvo.d;
       state.nome = salvo.n || "";
-      
-      if(state.lastDate !== hoje) {
-        state.vidas = 3; // Reset diário
-        state.lastDate = hoje;
-        salvarLocal();
-      }
+      if(state.lastDate !== hoje) { state.vidas = 3; state.lastDate = hoje; salvarLocal(); }
     } else {
       state.vidas = 3;
       state.lastDate = hoje;
@@ -162,11 +180,7 @@
   }
 
   function salvarLocal() {
-    localStorage.setItem('sg_user_progresso', JSON.stringify({
-      v: state.vidas,
-      d: state.lastDate,
-      n: state.nome
-    }));
+    localStorage.setItem('sg_v3_prog', JSON.stringify({ v: state.vidas, d: state.lastDate, n: state.nome }));
   }
 
   function shuffle(array) {
@@ -174,9 +188,9 @@
   }
 
   function iniciarTrilha() {
-    if(state.vidas <= 0) return alert("Suas vidas acabaram por hoje. Volte amanhã ou atinja 100% no treinamento anterior!");
+    if(state.vidas <= 0) return alert("Vidas esgotadas por hoje. Volte amanhã ou gabarite o nível anterior!");
     const n = document.getElementById('nomeIn').value.trim();
-    if(!n) return alert("Digite seu nome.");
+    if(!n) return alert("Por favor, digite seu nome.");
     state.nome = n;
     salvarLocal();
     prepararFase();
@@ -187,7 +201,7 @@
     state.degrau = 1;
     state.perguntaNoDegrau = 1;
     state.acertosFase = 0;
-    state.indexQuestao = 0;
+    state.indexQuestaoLocal = 0;
     state.respondido = false;
     state.tela = 'jogo';
     renderizar();
@@ -202,17 +216,17 @@
         state.timer -= 0.1;
         const b = document.querySelector('.timer-barra');
         if(b) b.style.width = (state.timer / 15) * 100 + '%';
-        if(state.timer <= 0) responder(null);
+        if(state.timer <= 0) resolver(null);
       }
     }, 100);
   }
 
-  function responder(idx) {
+  function resolver(idx) {
     if(state.respondido) return;
     state.respondido = true;
     state.escolha = idx;
     clearInterval(state.timerInt);
-    const q = state.questoesRodada[state.indexQuestao];
+    const q = state.questoesRodada[state.indexQuestaoLocal];
     if(idx === q.ok) {
       state.acertosFase++;
       state.pontosTotal += 100 + Math.round(state.timer * 5);
@@ -224,10 +238,11 @@
     if (state.perguntaNoDegrau < 10) state.perguntaNoDegrau++;
     else { state.perguntaNoDegrau = 1; state.degrau++; }
     
-    state.indexQuestao++;
+    state.indexQuestaoLocal++;
 
-    if(state.indexQuestao >= 10 || state.indexQuestao >= state.questoesRodada.length) {
-      validar();
+    // Completou 100 questões (ou limite do banco p/ teste)
+    if(state.indexQuestaoLocal >= 10) { 
+      validarAprovacao();
     } else {
       state.respondido = false;
       state.escolha = null;
@@ -236,16 +251,11 @@
     }
   }
 
-  function validar() {
-    const aproveitamento = (state.acertosFase / state.indexQuestao) * 100;
-    
-    // Bônus de 100%: Recupera vidas
-    if(aproveitamento === 100) {
-        state.vidas = 3;
-        salvarLocal();
-    }
+  function validarAprovacao() {
+    const media = (state.acertosFase / state.indexQuestaoLocal) * 100;
+    if(media === 100) { state.vidas = 3; salvarLocal(); }
 
-    if(aproveitamento >= 70) {
+    if(media >= 70) {
       if(state.faseIdx < 3) {
         state.faseIdx++;
         state.tela = 'avanco';
@@ -262,10 +272,10 @@
 
   function finalizar() {
     state.tela = 'final';
-    let rk = JSON.parse(localStorage.getItem('sg_rank_anual')) || [];
+    let rk = JSON.parse(localStorage.getItem('sg_elite_final_rank')) || [];
     rk.push({ n: state.nome, p: state.pontosTotal });
     rk.sort((a,b) => b.p - a.p);
-    localStorage.setItem('sg_rank_anual', JSON.stringify(rk.slice(0,5)));
+    localStorage.setItem('sg_elite_final_rank', JSON.stringify(rk.slice(0,5)));
   }
 
   function renderizar() {
@@ -276,12 +286,11 @@
       app.innerHTML = `
         <div class="tela">
           <div class="personagem-container"><img src="vital.png" class="personagem-img"></div>
-          <div class="vidas-ui">${'❤️'.repeat(state.vidas)}${'🖤'.repeat(3 - state.vidas)}</div>
           <div class="frase-vital">
             "Olá! Sou o <b>Vital</b>. Vou guiar você nesta jornada! Mostre seu conhecimento em <b>segurança</b>, conquiste o selo <b>DIAMANTE</b> e torne-se um <b>Agente Oficial</b>. Vamos começar?<br>
             <span class="slogan-final">Afinal, SEGURANÇA É VITAL!"</span>
           </div>
-          <input type="text" id="nomeIn" class="campo-nome" placeholder="Seu Nome Completo" value="${state.nome}">
+          <input type="text" id="nomeIn" class="campo-nome" placeholder="Digite seu Nome Completo" value="${state.nome}">
           <button class="btn-principal" onclick="iniciarTrilha()" ${state.vidas <= 0 ? 'disabled' : ''}>
             ${state.vidas <= 0 ? 'Vidas Esgotadas' : 'Iniciar'}
           </button>
@@ -295,19 +304,25 @@
     }
 
     else if(state.tela === 'ranking') {
-      const lista = JSON.parse(localStorage.getItem('sg_rank_anual')) || [];
+      const lista = JSON.parse(localStorage.getItem('sg_elite_final_rank')) || [];
       app.innerHTML = `
         <div class="tela">
           <h3 style="font-family:'Orbitron'; text-align:center; margin-bottom:20px; color:var(--sg-green)">AGENTES DE SEGURANÇA DO ANO</h3>
           <div class="ranking-lista">
-            ${lista.map((r,i) => `<div class="rk-item"><span>${i+1}º ${r.n}</span><span style="color:var(--sg-green)">${r.p} pts</span></div>`).join('')}
+            ${lista.map((r,i) => `
+              <div class="ranking-item">
+                <span class="rk-nome">${i+1}º ${r.n}</span>
+                <span class="rk-score">${r.p}</span>
+              </div>
+            `).join('')}
+            ${lista.length === 0 ? '<p style="text-align:center; opacity:0.5">Sem recordes ainda.</p>' : ''}
           </div>
           <button class="btn-principal" onclick="state.tela='inicio'; renderizar()">Voltar</button>
         </div>`;
     }
 
     else if(state.tela === 'jogo') {
-      const q = state.questoesRodada[state.indexQuestao];
+      const q = state.questoesRodada[state.indexQuestaoLocal];
       app.innerHTML = `
         <div class="tela">
           <div style="text-align:center"><span class="badge ${f.c}">Nível ${f.n}</span></div>
@@ -321,12 +336,12 @@
           <div class="opcoes-grid">
             ${q.opt.map((o,i) => {
               let cl = state.respondido ? (i === q.ok ? 'certo' : (state.escolha === i ? 'errado' : '')) : '';
-              return `<button class="btn-opcao ${cl}" onclick="responder(${i})" ${state.respondido?'disabled':''}>
+              return `<button class="btn-opcao ${cl}" onclick="resolver(${i})" ${state.respondido?'disabled':''}>
                 <span class="letra">${String.fromCharCode(65+i)}</span> ${o}
               </button>`;
             }).join('')}
           </div>
-          ${state.respondido ? `<div class="dica-box"><b>Dica:</b> ${q.dica}</div><button class="btn-principal" onclick="proxima()">Avançar</button>` : ''}
+          ${state.respondido ? `<div class="dica-box"><b>Dica Vital:</b> ${q.dica}</div><button class="btn-principal" onclick="proxima()">Avançar</button>` : ''}
         </div>`;
     }
 
@@ -334,9 +349,9 @@
       app.innerHTML = `
         <div class="tela" style="text-align:center; justify-content: center;">
           <div class="personagem-container"><img src="vital.png" style="width:110px"></div>
-          <h2 style="color:var(--sg-green)">EXCELENTE!</h2>
-          <p>Você subiu para o nível:</p>
-          <h1 style="font-family:'Orbitron'; margin:20px 0">${f.n}</h1>
+          <h2 style="color:var(--sg-green)">PARABÉNS!</h2>
+          <p>Você superou os 10 degraus e subiu para:</p>
+          <h1 style="font-family:'Orbitron'; margin:20px 0; color:var(--sg-green)">NÍVEL ${f.n}</h1>
           <button class="btn-principal" onclick="prepararFase()">Iniciar Fase ${f.n}</button>
         </div>`;
     }
@@ -345,7 +360,7 @@
       app.innerHTML = `
         <div class="tela" style="text-align:center; justify-content: center;">
           <h2 style="color:var(--cor-errado)">REVISÃO NECESSÁRIA</h2>
-          <p>Você perdeu 1 vida. Restam: <b>${state.vidas}</b></p>
+          <p style="margin: 10px 0">Você não atingiu os 70% de acertos.<br>Perdeu 1 vida.</p>
           <div class="personagem-container"><img src="vital.png" style="width:100px; filter:grayscale(1)"></div>
           <button class="btn-principal" onclick="prepararFase()">${state.vidas > 0 ? 'Tentar Novamente' : 'Voltar Amanhã'}</button>
         </div>`;
@@ -355,8 +370,9 @@
       app.innerHTML = `
         <div class="tela" style="text-align:center; justify-content: center;">
           <div class="personagem-container"><img src="vital.png" style="width:130px"></div>
-          <h1 style="font-family:'Orbitron'; color:var(--cor-diamante)">AGENTE DIAMANTE</h1>
-          <div class="pergunta-card"><h1>${state.pontosTotal} pts</h1></div>
+          <h1 style="font-family:'Orbitron'; color:var(--cor-diamante); font-size:22px">MISSÃO CONCLUÍDA!</h1>
+          <p>Parabéns, Agente <b>${state.nome}</b>!<br>Você alcançou a certificação máxima.</p>
+          <div class="pergunta-card"><h1 style="color:var(--sg-green)">${state.pontosTotal}</h1></div>
           <button class="btn-principal" onclick="location.reload()">Início</button>
         </div>`;
     }
