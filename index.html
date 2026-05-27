@@ -30,7 +30,7 @@
     }
 
     #sg-root {
-      width: 100%; max-width: 500px; height: 820px;
+      width: 100%; max-width: 500px; height: 850px;
       background: #ffffff; border-radius: 30px;
       border: 1px solid rgba(0, 117, 106, 0.2);
       box-shadow: 0 20px 50px rgba(0,0,0,0.1);
@@ -42,29 +42,45 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 15px 20px; border-bottom: 2px solid #f4f7f6; background: #fff; z-index: 10;
     }
-    .topo img { height: 40px; }
+    .topo img { height: 35px; }
     .topo .tit { font-family: 'Orbitron'; font-size: 14px; color: var(--sg-green); font-weight: 900; }
 
     .grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,117,106,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,117,106,0.04) 1px, transparent 1px); background-size: 30px 30px; pointer-events: none; }
 
     .tela { padding: 15px 25px; flex: 1; display: flex; flex-direction: column; position: relative; z-index: 1; animation: fadeIn 0.4s ease-out; overflow-y: auto; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
 
+    /* FORMULÁRIO E TEXTOS */
     .campo-nome {
       width: 100%; padding: 16px 25px; border-radius: 50px; border: 2px solid #e0e7e5;
       background: #f9fbfb; color: var(--sg-dark); font-family: 'Rajdhani';
       font-size: 18px; text-align: center; outline: none; transition: var(--transition);
       font-weight: 600; margin-bottom: 15px;
     }
-    .campo-nome:focus { border-color: var(--sg-green); background: #fff; box-shadow: 0 0 12px rgba(0,117,106,0.15); }
+    .campo-nome:focus { border-color: var(--sg-green); background: #fff; }
 
     .personagem-container { text-align: center; margin: 5px 0; }
-    .personagem-img { width: 130px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); animation: flutuar 3s ease-in-out infinite; }
-    @keyframes flutuar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .personagem-img { width: 120px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); animation: flutuar 3s ease-in-out infinite; }
+    @keyframes flutuar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
-    .frase-vital { text-align: center; font-size: 16px; line-height: 1.4; margin-bottom: 20px; font-weight: 600; color: var(--sg-dark); padding: 0 10px; }
+    .frase-vital { text-align: center; font-size: 15px; line-height: 1.4; margin-bottom: 20px; font-weight: 600; color: var(--sg-dark); padding: 0 5px; }
 
-    .badge { display: inline-block; padding: 5px 15px; border-radius: 50px; font-family: 'Orbitron'; font-size: 12px; font-weight: 900; color: #fff; text-transform: uppercase; margin-bottom: 10px; }
+    /* RODAPÉ HOME */
+    .rodape-home {
+      margin-top: auto;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-top: 1px solid #f0f0f0;
+      width: 100%;
+      background: #fafafa;
+    }
+    .rodape-home img { height: 40px; margin-bottom: 5px; }
+    .rodape-home p { font-family: 'Orbitron'; font-size: 10px; font-weight: 900; color: var(--sg-green); letter-spacing: 1px; }
+
+    /* HUD JOGO */
+    .badge { display: inline-block; padding: 5px 15px; border-radius: 50px; font-family: 'Orbitron'; font-size: 11px; font-weight: 900; color: #fff; text-transform: uppercase; margin-bottom: 10px; }
     .badge-bronze { background: var(--cor-bronze); }
     .badge-prata { background: var(--cor-prata); }
     .badge-ouro { background: var(--cor-ouro); }
@@ -73,62 +89,58 @@
     .hud-carreira { display: flex; justify-content: space-between; gap: 5px; margin-bottom: 10px; }
     .hud-box { background: #f0f4f3; padding: 8px; border-radius: 12px; text-align: center; flex: 1; border: 1px solid rgba(0,0,0,0.05); }
     .hud-label { font-size: 8px; font-weight: 700; color: var(--sg-green); display: block; }
-    .hud-val { font-family: 'Orbitron'; font-size: 12px; }
+    .hud-val { font-family: 'Orbitron'; font-size: 11px; }
 
-    .pergunta-card { background: #f9fbfb; border-radius: 20px; padding: 25px; text-align: center; border: 1px solid rgba(0,117,106,0.1); margin-bottom: 15px; min-height: 150px; display: flex; flex-direction: column; justify-content: center; }
+    .pergunta-card { background: #f9fbfb; border-radius: 20px; padding: 20px; text-align: center; border: 1px solid rgba(0,117,106,0.1); margin-bottom: 10px; min-height: 140px; display: flex; flex-direction: column; justify-content: center; }
     .pergunta-texto { font-size: 17px; font-weight: 700; line-height: 1.3; }
 
-    .opcoes-grid { display: grid; gap: 8px; }
-    .btn-opcao { background: #fff; border: 1px solid rgba(0,117,106,0.2); padding: 14px; border-radius: 12px; cursor: pointer; text-align: left; font-size: 15px; font-weight: 600; display: flex; align-items: center; transition: 0.2s; width: 100%; }
-    .btn-opcao:hover:not(:disabled) { background: #f0f7f6; }
-    .btn-opcao.certo { background: var(--cor-certo) !important; color: #fff !important; border-color: #27ae60; }
-    .btn-opcao.errado { background: var(--cor-errado) !important; color: #fff !important; border-color: #c0392b; }
-    
-    .letra { width: 24px; height: 24px; background: var(--sg-green); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-right: 12px; font-family: 'Orbitron'; font-size: 10px; flex-shrink: 0; }
-    .btn-opcao.certo .letra, .btn-opcao.errado .letra { background: rgba(255,255,255,0.3); }
+    .opcoes-grid { display: grid; gap: 6px; }
+    .btn-opcao { background: #fff; border: 1px solid rgba(0,117,106,0.2); padding: 12px; border-radius: 12px; cursor: pointer; text-align: left; font-size: 14px; font-weight: 600; display: flex; align-items: center; transition: 0.2s; width: 100%; }
+    .btn-opcao.certo { background: var(--cor-certo) !important; color: #fff; border-color: #27ae60; }
+    .btn-opcao.errado { background: var(--cor-errado) !important; color: #fff; border-color: #c0392b; }
+    .letra { width: 22px; height: 22px; background: var(--sg-green); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-right: 12px; font-family: 'Orbitron'; font-size: 9px; flex-shrink: 0; }
 
-    .btn-principal { width: 100%; padding: 18px; border-radius: 50px; border: none; background: var(--sg-green); color: #fff; font-family: 'Orbitron'; font-weight: 900; cursor: pointer; margin-top: 10px; text-transform: uppercase; transition: 0.2s; }
-    .btn-principal:hover { background: var(--sg-dark); transform: translateY(-2px); }
+    .btn-principal { width: 100%; padding: 16px; border-radius: 50px; border: none; background: var(--sg-green); color: #fff; font-family: 'Orbitron'; font-weight: 900; cursor: pointer; margin-top: 10px; text-transform: uppercase; }
+    .btn-principal:hover { background: var(--sg-dark); }
     .btn-secundario { background: transparent; border: 2px solid var(--sg-green); color: var(--sg-green); font-size: 12px; margin-top: 5px; }
 
-    .timer-cont { height: 5px; background: #eee; border-radius: 3px; margin-bottom: 10px; overflow: hidden; }
-    .timer-barra { height: 100%; background: var(--sg-green); width: 100%; transition: width 0.1s linear; }
-
+    .timer-barra { height: 4px; background: var(--sg-green); width: 100%; transition: width 0.1s linear; margin-bottom: 10px; }
     .rk-item { display: flex; justify-content: space-between; padding: 12px; background: #f9fbfb; margin-bottom: 5px; border-radius: 12px; border: 1px solid #eee; font-weight: 700; }
-    .dica-box { margin-top: 10px; padding: 12px; border-radius: 12px; font-size: 13px; background: #eef2f1; border-left: 5px solid var(--sg-green); animation: fadeIn 0.3s; }
+    .dica-box { margin-top: 10px; padding: 12px; border-radius: 12px; font-size: 13px; background: #eef2f1; border-left: 5px solid var(--sg-green); }
   </style>
 </head>
 <body>
 
 <div id="sg-root">
   <div class="topo">
-    <img src="logo.png" alt="Logo" onerror="this.style.display='none'">
+    <img src="logo.png" alt="SGBH">
     <div class="tit">SAFETY GAME</div>
   </div>
   <div class="grid-bg"></div>
-  <div id="app"></div>
+  <div id="app" style="display: contents;"></div>
 </div>
 
 <script>
-  // Banco de Dados de Questões
-  const BANCO_QUESTOES = [
-    { cat: "NR-10", q: "Qual a distância mínima de segurança para aproximação de redes de 13.8kV?", opt: ["0,50m", "1,20m", "3,00m", "5,00m"], ok: 1, dica: "Distância padrão NR-10 para evitar arco elétrico." },
-    { cat: "NR-06", q: "O que garante legalmente a eficácia de um EPI no Brasil?", opt: ["A marca", "O preço", "O Certificado de Aprovação (CA)", "A cor"], ok: 2, dica: "O CA é o registro obrigatório do Ministério do Trabalho." },
+  // Banco de Dados escalável para 1000+ questões
+  const BANCO_COMPLETO = [
+    { cat: "NR-10", q: "Qual a distância mínima de segurança para aproximação de redes de 13.8kV?", opt: ["0,50m", "1,20m", "3,00m", "5,00m"], ok: 1, dica: "Manter a distância padrão evita o risco de arco elétrico." },
+    { cat: "NR-06", q: "O que garante legalmente a eficácia de um EPI no Brasil?", opt: ["A marca", "O preço", "O Certificado de Aprovação (CA)", "A indicação do colega"], ok: 2, dica: "O CA é o registro obrigatório do órgão competente." },
     { cat: "NR-35", q: "A partir de qual altura é obrigatório o uso de cinto paraquedista?", opt: ["1,0m", "1,5m", "2,0m", "5,0m"], ok: 2, dica: "A NR-35 define trabalho em altura acima de 2 metros." },
-    { cat: "INCÊNDIO", q: "Qual extintor NÃO deve ser usado em fogo elétrico energizado?", opt: ["CO2", "Pó Químico", "Água Pressurizada", "Halon"], ok: 2, dica: "Água conduz eletricidade e oferece risco de choque." },
-    { cat: "NR-01", q: "Cabe ao trabalhador cumprir as normas de segurança?", opt: ["Não", "Apenas se quiser", "Sim, é obrigação legal", "Só se houver fiscal"], ok: 2, dica: "O descumprimento é falta grave passível de punição." },
-    { cat: "SINALIZAÇÃO", q: "A cor VERDE em segurança indica:", opt: ["Pare", "Atenção", "Segurança / Saída / Socorro", "Obrigatório"], ok: 2, dica: "Verde identifica rotas de fuga e kits de primeiros socorros." },
-    { cat: "CIPA", q: "Qual a duração do mandato dos membros da CIPA?", opt: ["6 meses", "1 ano", "2 anos", "3 anos"], ok: 1, dica: "Mandato de 1 ano com direito a uma reeleição." },
-    { cat: "NR-12", q: "Onde deve ficar o botão de emergência de uma máquina?", opt: ["Atrás da máquina", "Em local de fácil acesso e visível", "Dentro do painel", "No teto"], ok: 1, dica: "Deve ser acessível para parada imediata em riscos." },
-    { cat: "NR-33", q: "Quem monitora o trabalho de fora do espaço confinado?", opt: ["Vigia", "Gerente", "Porteiro", "Fiscal"], ok: 0, dica: "O Vigia garante a comunicação e aciona o resgate." },
-    { cat: "EPI", q: "Luvas de raspa são indicadas para:", opt: ["Eletricidade", "Químicos", "Serviços pesados e abrasão", "Cozinha"], ok: 2, dica: "Protegem contra agentes abrasivos e escoriantes." }
+    { cat: "INCÊNDIO", q: "Qual extintor NÃO deve ser usado em fogo elétrico energizado?", opt: ["CO2", "Pó Químico", "Água Pressurizada", "Halon"], ok: 2, dica: "A água conduz eletricidade e oferece risco de choque fatal." },
+    { cat: "NR-33", q: "Quem deve monitorar o trabalho de fora do espaço confinado?", opt: ["Vigia", "Gerente", "Porteiro", "Fiscal"], ok: 0, dica: "O Vigia é o responsável por acionar o plano de resgate." },
+    { cat: "CIPA", q: "Qual a duração do mandato dos membros da CIPA?", opt: ["6 meses", "1 ano", "2 anos", "3 anos"], ok: 1, dica: "O mandato é de 1 ano, permitindo uma reeleição." },
+    { cat: "SINALIZAÇÃO", q: "A cor VERDE em segurança indica:", opt: ["Pare", "Atenção", "Saída / Socorro / Segurança", "Obrigatório"], ok: 2, dica: "Verde identifica rotas de fuga e itens de primeiros socorros." },
+    { cat: "NR-12", q: "Onde deve ficar o botão de emergência de uma máquina?", opt: ["Atrás da máquina", "Em local visível e de fácil acesso", "No painel interno", "No teto"], ok: 1, dica: "Deve ser acessível para parada imediata em caso de risco." },
+    { cat: "NR-01", q: "O descumprimento das normas de segurança pelo trabalhador é:", opt: ["Opcional", "Falta grave", "Irrelevante", "Aceitável"], ok: 1, dica: "O colaborador é legalmente obrigado a seguir as normas da empresa." },
+    { cat: "EPI", q: "Luvas de raspa protegem principalmente contra:", opt: ["Eletricidade", "Químicos", "Agentes abrasivos e escoriantes", "Radiação"], ok: 2, dica: "São ideais para carregar materiais brutos e serviços mecânicos." }
+    // Adicione mais questões aqui para chegar a 1000...
   ];
 
   const FASES = [
-    { nome: "Bronze", nivel: "Básico", css: "badge-bronze" },
-    { nome: "Prata", nivel: "Elementar", css: "badge-prata" },
-    { nome: "Ouro", nivel: "Sênior", css: "badge-ouro" },
-    { nome: "Diamante", nivel: "Especialista", css: "badge-diamante" }
+    { nome: "Bronze", css: "badge-bronze" },
+    { nome: "Prata", css: "badge-prata" },
+    { nome: "Ouro", css: "badge-ouro" },
+    { nome: "Diamante", css: "badge-diamante" }
   ];
 
   let state = {
@@ -136,14 +148,15 @@
     nome: '',
     faseIdx: 0,
     degrau: 1,
+    perguntaNoDegrau: 1,
     questoesRodada: [],
-    perguntaIdx: 0,
+    indiceQuestaoLocal: 0,
     acertosFase: 0,
     respondido: false,
+    escolhaUsuario: null,
     pontosTotal: 0,
     timer: 15,
-    timerInt: null,
-    escolhaUsuario: null
+    timerInt: null
   };
 
   function shuffle(array) {
@@ -165,11 +178,12 @@
   }
 
   function prepararFase() {
-    // Sorteia questões para a fase
-    state.questoesRodada = shuffle([...BANCO_QUESTOES]);
-    state.perguntaIdx = 0;
+    // Sorteia as 100 questões (ou o máximo disponível) para a fase
+    state.questoesRodada = shuffle([...BANCO_COMPLETO]); 
     state.degrau = 1;
+    state.perguntaNoDegrau = 1;
     state.acertosFase = 0;
+    state.indiceQuestaoLocal = 0;
     state.respondido = false;
     state.tela = 'jogo';
     renderizar();
@@ -184,18 +198,18 @@
         state.timer -= 0.1;
         const b = document.querySelector('.timer-barra');
         if(b) b.style.width = (state.timer / 15) * 100 + '%';
-        if(state.timer <= 0) responder(null);
+        if(state.timer <= 0) resolver(null);
       }
     }, 100);
   }
 
-  function responder(idx) {
+  function resolver(idx) {
     if(state.respondido) return;
     state.respondido = true;
     state.escolhaUsuario = idx;
     clearInterval(state.timerInt);
     
-    const q = state.questoesRodada[state.perguntaIdx];
+    const q = state.questoesRodada[state.indiceQuestaoLocal];
     if(idx === q.ok) {
       state.acertosFase++;
       state.pontosTotal += 100 + Math.round(state.timer * 5);
@@ -204,38 +218,50 @@
   }
 
   function proxima() {
-    state.perguntaIdx++;
+    state.indiceQuestaoLocal++;
     
-    // Simulação de degrau a cada pergunta (ajuste conforme necessário)
-    if(state.perguntaIdx % 1 === 0 && state.degrau < 10) state.degrau = state.perguntaIdx + 1;
+    // Lógica de degrau: 10 perguntas por degrau
+    if (state.perguntaNoDegrau < 10) {
+      state.perguntaNoDegrau++;
+    } else {
+      state.perguntaNoDegrau = 1;
+      state.degrau++;
+    }
 
-    // Se completou 10 questões (objetivo do teste rápido, altere para 100 no real)
-    if(state.perguntaIdx >= 10) {
-      const media = (state.acertosFase / 10) * 100;
-      if(media >= 70) {
-        if(state.faseIdx < 3) {
-          state.faseIdx++;
-          state.tela = 'avanco';
-        } else {
-          finalizar();
-        }
-      } else {
-        state.tela = 'falha';
-      }
+    // Se completou as 100 perguntas da fase (10 degraus)
+    if(state.indiceQuestaoLocal >= 100 || state.indiceQuestaoLocal >= state.questoesRodada.length) {
+      validarAprovacao();
     } else {
       state.respondido = false;
       state.escolhaUsuario = null;
+      renderizar();
       startTimer();
+    }
+  }
+
+  function validarAprovacao() {
+    const total = state.indiceQuestaoLocal;
+    const media = (state.acertosFase / total) * 100;
+
+    if(media >= 70) {
+      if(state.faseIdx < 3) {
+        state.faseIdx++;
+        state.tela = 'avanco';
+      } else {
+        finalizar();
+      }
+    } else {
+      state.tela = 'falha';
     }
     renderizar();
   }
 
   function finalizar() {
     state.tela = 'final';
-    let rk = JSON.parse(localStorage.getItem('sg_rank_anual')) || [];
+    let rk = JSON.parse(localStorage.getItem('sg_elite_ranking')) || [];
     rk.push({ n: state.nome, p: state.pontosTotal });
     rk.sort((a,b) => b.p - a.p);
-    localStorage.setItem('sg_rank_anual', JSON.stringify(rk.slice(0,5)));
+    localStorage.setItem('sg_elite_ranking', JSON.stringify(rk.slice(0,5)));
   }
 
   function renderizar() {
@@ -249,46 +275,51 @@
           <div class="frase-vital">
             "Olá! Sou o Vital. Vou guiar você nesta jornada! Mostre seu conhecimento em segurança, conquiste o selo DIAMANTE e torne-se um Agente oficial. Vamos começar? Afinal, SEGURANÇA É VITAL!"
           </div>
-          <input type="text" id="nomeIn" class="campo-nome" placeholder="Digite seu Nome" value="${state.nome}">
+          <input type="text" id="nomeIn" class="campo-nome" placeholder="Digite seu Nome Completo" value="${state.nome}">
           <button class="btn-principal" onclick="iniciar()">Iniciar</button>
           <button class="btn-principal btn-secundario" onclick="state.tela='ranking'; renderizar()">Top 5 Agentes do Ano</button>
+          
+          <div class="rodape-home">
+            <img src="logo.png" alt="SGBH Logo">
+            <p>STATE GRID BRAZIL HOLDING S.A.</p>
+          </div>
         </div>`;
     }
 
     else if(state.tela === 'ranking') {
-      const lista = JSON.parse(localStorage.getItem('sg_rank_anual')) || [];
+      const lista = JSON.parse(localStorage.getItem('sg_elite_ranking')) || [];
       app.innerHTML = `
         <div class="tela">
           <h3 style="font-family:'Orbitron'; text-align:center; margin-bottom:20px; color:var(--sg-green)">AGENTES DE SEGURANÇA DO ANO</h3>
           <div class="ranking-lista">
-            ${lista.length ? lista.map((r,i) => `<div class="rk-item"><span>${i+1}º ${r.n}</span><span style="color:var(--sg-green)">${r.p} pts</span></div>`).join('') : '<p style="text-align:center; opacity:0.5">Sem recordes ainda.</p>'}
+            ${lista.map((r,i) => `<div class="rk-item"><span>${i+1}º ${r.n}</span><span style="color:var(--sg-green)">${r.p} pts</span></div>`).join('')}
           </div>
           <button class="btn-principal" onclick="state.tela='inicio'; renderizar()">Voltar</button>
         </div>`;
     }
 
     else if(state.tela === 'jogo') {
-      const q = state.questoesRodada[state.perguntaIdx];
+      const q = state.questoesRodada[state.indiceQuestaoLocal];
       app.innerHTML = `
         <div class="tela">
-          <div style="text-align:center"><span class="badge ${f.css}">${f.nome}</span></div>
+          <div style="text-align:center"><span class="badge ${f.css}">Nível ${f.nome}</span></div>
           <div class="hud-carreira">
             <div class="hud-box"><span class="hud-label">DEGRAU</span><span class="hud-val">${state.degrau}/10</span></div>
+            <div class="hud-box"><span class="hud-label">QUESTÃO</span><span class="hud-val">${state.perguntaNoDegrau}/10</span></div>
             <div class="hud-box"><span class="hud-label">ACERTOS</span><span class="hud-val">${state.acertosFase}</span></div>
-            <div class="hud-box"><span class="hud-label">SCORE</span><span class="hud-val">${state.pontosTotal}</span></div>
           </div>
-          <div class="timer-cont"><div class="timer-barra"></div></div>
+          <div class="timer-barra"></div>
           <div class="pergunta-card">
             <div class="pergunta-texto">${q.q}</div>
           </div>
           <div class="opcoes-grid">
             ${q.opt.map((o,i) => {
-              let classe = '';
+              let cl = '';
               if(state.respondido) {
-                if(i === q.ok) classe = 'certo';
-                else if(i === state.escolhaUsuario) classe = 'errado';
+                if(i === q.ok) cl = 'certo';
+                else if(i === state.escolhaUsuario) cl = 'errado';
               }
-              return `<button class="btn-opcao ${classe}" onclick="responder(${i})" ${state.respondido?'disabled':''}>
+              return `<button class="btn-opcao ${cl}" onclick="resolver(${i})" ${state.respondido?'disabled':''}>
                 <span class="letra">${String.fromCharCode(65+i)}</span> ${o}
               </button>`;
             }).join('')}
@@ -300,11 +331,11 @@
     else if(state.tela === 'avanco') {
       app.innerHTML = `
         <div class="tela" style="text-align:center; justify-content: center;">
-          <div class="personagem-container"><img src="vital.png" style="width:120px"></div>
-          <h2 style="color:var(--sg-green)">EXCELENTE!</h2>
-          <p>Você atingiu a média e subiu para o nível:</p>
-          <h1 style="font-family:'Orbitron'; margin:20px 0; color:var(--sg-green)">${f.nome}</h1>
-          <button class="btn-principal" onclick="prepararFase()">Iniciar Nível ${f.nome}</button>
+          <div class="personagem-container"><img src="vital.png" style="width:110px"></div>
+          <h2 style="color:var(--sg-green)">EXCELENTE TRABALHO!</h2>
+          <p>Você atingiu a meta de 70% e subiu para:</p>
+          <h1 style="font-family:'Orbitron'; margin:15px 0; color:var(--sg-green)">NÍVEL ${f.nome}</h1>
+          <button class="btn-principal" onclick="prepararFase()">Iniciar Fase ${f.nome}</button>
         </div>`;
     }
 
@@ -312,23 +343,23 @@
       app.innerHTML = `
         <div class="tela" style="text-align:center; justify-content: center;">
           <h2 style="color:var(--cor-errado)">REVISÃO NECESSÁRIA</h2>
-          <p style="margin: 15px 0">Sua média foi inferior a 70%.</p>
+          <p style="margin: 10px 0">Você não atingiu os 70 acertos mínimos nesta fase.</p>
           <div class="personagem-container"><img src="vital.png" style="width:100px; filter:grayscale(1)"></div>
-          <button class="btn-principal" onclick="prepararFase()">Tentar Nível ${f.nome} Novamente</button>
+          <button class="btn-principal" onclick="prepararFase()">Recomeçar Nível ${f.nome}</button>
         </div>`;
     }
 
     else if(state.tela === 'final') {
       app.innerHTML = `
         <div class="tela" style="text-align:center; justify-content: center;">
-          <div class="personagem-container"><img src="vital.png" style="width:150px"></div>
-          <h1 style="font-family:'Orbitron'; color:var(--cor-diamante)">AGENTE DIAMANTE</h1>
-          <p>Parabéns, <b>${state.nome}</b>!<br>Você concluiu toda a trilha SGBH.</p>
+          <div class="personagem-container"><img src="vital.png" style="width:130px"></div>
+          <h1 style="font-family:'Orbitron'; color:var(--cor-diamante); font-size:22px">MISSÃO CONCLUÍDA!</h1>
+          <p>Parabéns, <b>${state.nome}</b>!<br>Você agora é um Agente de Segurança Diamante.</p>
           <div class="pergunta-card">
-            <p>Score Final:</p>
-            <h1 style="font-size:45px; color:var(--sg-green)">${state.pontosTotal}</h1>
+            <p>Score Final de Carreira:</p>
+            <h1 style="font-size:40px; color:var(--sg-green)">${state.pontosTotal}</h1>
           </div>
-          <button class="btn-principal" onclick="location.reload()">Menu Inicial</button>
+          <button class="btn-principal" onclick="location.reload()">Início</button>
         </div>`;
     }
   }
