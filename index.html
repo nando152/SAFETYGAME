@@ -38,77 +38,76 @@
       display: flex; flex-direction: column;
     }
 
-    /* TOPO COM SELETOR DE IDIOMA */
     .topo {
       display: flex; align-items: center; justify-content: space-between;
       padding: 15px 25px; border-bottom: 2px solid #f4f7f6; background: #fff; z-index: 10;
     }
     .topo img { height: 35px; }
-    .lang-toggle { display: flex; gap: 8px; align-items: center; }
-    .lang-btn { 
-        font-size: 20px; cursor: pointer; opacity: 0.4; transition: 0.3s; 
-        filter: grayscale(1); border: none; background: none;
-    }
+    .topo .tit { font-family: 'Orbitron'; font-size: 14px; color: var(--sg-green); font-weight: 900; letter-spacing: 1px; }
+
+    .lang-toggle { display: flex; gap: 8px; }
+    .lang-btn { font-size: 18px; cursor: pointer; opacity: 0.3; border: none; background: none; transition: 0.3s; filter: grayscale(1); }
     .lang-btn.active { opacity: 1; filter: grayscale(0); transform: scale(1.2); }
 
     .grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,117,106,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,117,106,0.04) 1px, transparent 1px); background-size: 30px 30px; pointer-events: none; }
 
-    .tela { padding: 15px 30px; flex: 1; display: flex; flex-direction: column; position: relative; z-index: 1; animation: fadeIn 0.4s ease-out; overflow-y: auto; }
+    .tela { padding: 10px 30px; flex: 1; display: flex; flex-direction: column; position: relative; z-index: 1; animation: fadeIn 0.4s ease-out; overflow-y: auto; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-    .frase-vital {
-      text-align: center; font-size: 17px; line-height: 1.6;
-      margin: 15px 0 20px 0; font-weight: 500; color: #444;
-    }
+    /* TEXTO VITAL */
+    .frase-vital { text-align: center; font-size: 17px; line-height: 1.5; margin: 10px 0; font-weight: 500; color: #444; }
     .frase-vital b { color: var(--sg-green); font-weight: 700; }
     .slogan-final { display: block; margin-top: 10px; font-family: 'Orbitron'; font-weight: 900; color: var(--sg-green); font-size: 15px; }
 
     .campo-nome {
-      width: 100%; padding: 16px 25px; border-radius: 50px; border: 2px solid #e0e7e5;
+      width: 100%; padding: 15px 25px; border-radius: 50px; border: 2px solid #e0e7e5;
       background: #f9fbfb; color: var(--sg-dark); font-family: 'Rajdhani';
       font-size: 18px; text-align: center; outline: none; transition: var(--transition);
-      font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.03); margin-bottom: 20px;
+      font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.03); margin-bottom: 10px;
     }
+    .campo-nome:focus { border-color: var(--sg-green); background: #fff; }
 
-    .personagem-container { text-align: center; margin: 10px 0; }
+    .personagem-container { text-align: center; margin: 5px 0; }
     .personagem-img { width: 140px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1)); animation: flutuar 3s ease-in-out infinite; }
     @keyframes flutuar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
+    /* RODAPÉ PERSONALIZADO */
     .rodape-home { margin-top: auto; padding: 20px; display: flex; flex-direction: column; align-items: center; border-top: 1px solid #f0f4f3; background: #fafafa; }
-    .rodape-home img { height: 45px; margin-bottom: 8px; }
-    .rodape-home p { font-family: 'Orbitron'; font-size: 10px; font-weight: 900; color: var(--sg-green); text-align: center; }
+    .rodape-home img { width: 100%; max-width: 280px; height: auto; margin-bottom: 5px; }
+    .rodape-home p { font-family: 'Orbitron'; font-size: 9px; font-weight: 900; color: var(--sg-green); text-align: center; letter-spacing: 1px; }
 
-    /* HUD */
+    /* JOGO HUD */
     .badge { display: inline-block; padding: 6px 16px; border-radius: 50px; font-family: 'Orbitron'; font-size: 11px; font-weight: 900; color: #fff; text-transform: uppercase; margin-bottom: 10px; }
     .badge-bronze { background: var(--cor-bronze); }
     .badge-prata { background: var(--cor-prata); }
     .badge-ouro { background: var(--cor-ouro); }
     .badge-diamante { background: var(--cor-diamante); box-shadow: 0 0 15px var(--cor-diamante); }
 
-    .hud-carreira { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
-    .hud-box { background: #f0f4f3; padding: 10px; border-radius: 15px; text-align: center; flex: 1; border: 1px solid rgba(0,0,0,0.05); }
-    .hud-label { font-size: 8px; font-weight: 700; color: var(--sg-green); display: block; margin-bottom: 2px; }
-    .hud-val { font-family: 'Orbitron'; font-size: 12px; }
+    .hud-carreira { display: flex; justify-content: space-between; gap: 5px; margin-bottom: 10px; }
+    .hud-box { background: #f0f4f3; padding: 8px; border-radius: 12px; text-align: center; flex: 1; border: 1px solid rgba(0,0,0,0.05); }
+    .hud-label { font-size: 8px; font-weight: 700; color: var(--sg-green); display: block; }
+    .hud-val { font-family: 'Orbitron'; font-size: 11px; }
 
-    .pergunta-card { background: #f9fbfb; border-radius: 25px; padding: 25px; text-align: center; border: 1px solid rgba(0,117,106,0.1); margin-bottom: 15px; min-height: 160px; display: flex; flex-direction: column; justify-content: center; }
-    .pergunta-texto { font-size: 18px; font-weight: 700; line-height: 1.4; }
+    .pergunta-card { background: #f9fbfb; border-radius: 25px; padding: 25px; text-align: center; border: 1px solid rgba(0,117,106,0.1); margin-bottom: 10px; min-height: 150px; display: flex; flex-direction: column; justify-content: center; }
+    .pergunta-texto { font-size: 17px; font-weight: 700; line-height: 1.4; }
 
     .opcoes-grid { display: grid; gap: 8px; }
-    .btn-opcao { background: #fff; border: 1px solid rgba(0,117,106,0.2); padding: 15px; border-radius: 15px; cursor: pointer; text-align: left; font-size: 15px; font-weight: 600; display: flex; align-items: center; transition: 0.2s; width: 100%; }
+    .btn-opcao { background: #fff; border: 1px solid rgba(0,117,106,0.2); padding: 14px; border-radius: 15px; cursor: pointer; text-align: left; font-size: 15px; font-weight: 600; display: flex; align-items: center; transition: 0.2s; width: 100%; }
     .btn-opcao.certo { background: var(--cor-certo) !important; color: #fff; border-color: #27ae60; }
     .btn-opcao.errado { background: var(--cor-errado) !important; color: #fff; border-color: #c0392b; }
     .letra { width: 24px; height: 24px; background: var(--sg-green); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-right: 12px; font-family: 'Orbitron'; font-size: 10px; flex-shrink: 0; }
 
-    .btn-principal { width: 100%; padding: 18px; border-radius: 50px; border: none; background: var(--sg-green); color: #fff; font-family: 'Orbitron'; font-weight: 900; cursor: pointer; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
+    .btn-principal { width: 100%; padding: 18px; border-radius: 50px; border: none; background: var(--sg-green); color: #fff; font-family: 'Orbitron'; font-weight: 900; cursor: pointer; margin-top: 5px; text-transform: uppercase; }
     .btn-principal:disabled { background: #ccc; cursor: not-allowed; }
     .btn-secundario { background: transparent; border: 2px solid var(--sg-green); color: var(--sg-green); font-size: 12px; margin-top: 5px; }
 
+    /* RANKING */
     .ranking-lista { width: 100%; margin-top: 5px; }
-    .ranking-item { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; background: #f9fbfb; margin-bottom: 8px; border-radius: 15px; border: 1px solid rgba(0,0,0,0.05); font-weight: 700; }
-    .rk-nome { text-align: left; flex: 1; font-size: 16px; color: var(--sg-dark); }
-    .rk-score { text-align: right; font-family: 'Orbitron'; color: var(--sg-green); font-size: 15px; }
+    .ranking-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: #f9fbfb; margin-bottom: 6px; border-radius: 15px; border: 1px solid rgba(0,0,0,0.05); font-weight: 700; }
+    .rk-nome { text-align: left; flex: 1; font-size: 15px; }
+    .rk-score { text-align: right; font-family: 'Orbitron'; color: var(--sg-green); }
 
-    .timer-barra { height: 5px; background: var(--sg-green); width: 100%; transition: width 0.1s linear; margin-bottom: 10px; border-radius: 10px; }
+    .timer-barra { height: 4px; background: var(--sg-green); width: 100%; transition: width 0.1s linear; margin-bottom: 10px; border-radius: 10px; }
     .dica-box { margin-top: 10px; padding: 15px; border-radius: 15px; font-size: 13px; background: #eef2f1; border-left: 5px solid var(--sg-green); line-height: 1.4; }
   </style>
 </head>
@@ -116,133 +115,77 @@
 
 <div id="sg-root">
   <div class="topo">
-    <img src="logo.png" alt="SGBH" onerror="this.style.visibility='hidden'">
+    <img src="logo.png" alt="Logo" onerror="this.style.visibility='hidden'">
     <div class="lang-toggle">
-        <button class="lang-btn" id="btn-pt" onclick="changeLang('pt')">🇧🇷</button>
-        <button class="lang-btn" id="btn-en" onclick="changeLang('en')">🇺🇸</button>
+        <button class="lang-btn" id="btn-pt" onclick="setLang('pt')">🇧🇷</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇺🇸</button>
     </div>
+    <div class="tit">SAFETY GAME</div>
   </div>
   <div class="grid-bg"></div>
   <div id="app" style="display: contents;"></div>
 </div>
 
 <script>
-  // TRADUÇÕES DE INTERFACE
+  // TRADUÇÕES
   const I18N = {
     pt: {
       welcome: `"Olá! Sou o <b>Vital</b>. Vou guiar você nesta jornada! Mostre seu conhecimento em <b>segurança</b>, conquiste o selo <b>DIAMANTE</b> e torne-se um <b>Agente Oficial</b>. Vamos começar?<br><span class="slogan-final">Afinal, SEGURANÇA É VITAL!"</span>`,
       placeholder: "Digite seu Nome Completo",
       btnStart: "Iniciar",
       btnRank: "Top 5 Agentes do Ano",
-      rankTitle: "AGENTES DE SEGURANÇA DO ANO",
+      rankTit: "AGENTES DE SEGURANÇA DO ANO",
       btnBack: "Voltar",
-      degrau: "DEGRAU",
-      questao: "QUESTÃO",
-      vidas: "VIDAS",
-      acertos: "ACERTOS",
-      score: "PONTOS",
-      dicaTit: "Dica Vital:",
+      hudDegrau: "DEGRAU",
+      hudQ: "QUESTÃO",
+      hudVidas: "VIDAS",
       btnNext: "Avançar",
-      avancoTit: "EXCELENTE!",
-      avancoSub: "Você atingiu a média e subiu para o nível:",
-      btnStartLevel: "Iniciar Nível ",
-      falhaTit: "REVISÃO NECESSÁRIA",
-      falhaSub: "Você não atingiu os 70% de acertos.<br>Perdeu 1 vida.",
-      btnRetry: "Recomeçar Nível ",
+      msgCerto: "EXCELENTE!",
+      msgSubiu: "Você atingiu a meta e subiu para:",
+      btnFase: "Iniciar Nível ",
+      msgErro: "REVISÃO NECESSÁRIA",
+      msgFalha: "Você não atingiu os 70% de acertos.<br>Perdeu 1 vida.",
+      btnRetry: "Repetir Nível ",
       finalTit: "AGENTE DIAMANTE",
-      finalSub: "Parabéns, Agente! Você alcançou a certificação máxima.",
-      finalScore: "Score Final:",
-      btnMenu: "Menu Inicial",
-      emptyRank: "Sem recordes ainda."
+      finalSub: "Parabéns Agente! Você concluiu a trilha.",
+      btnMenu: "Início"
     },
     en: {
       welcome: `"Hi! I am <b>Vital</b>. I will guide you on this journey! Show your <b>safety</b> knowledge, win the <b>DIAMOND</b> seal and become an <b>Official Agent</b>. Shall we start?<br><span class="slogan-final">After all, SAFETY IS VITAL!"</span>`,
       placeholder: "Enter your Full Name",
       btnStart: "Start",
       btnRank: "Top 5 Agents of the Year",
-      rankTitle: "SAFETY AGENTS OF THE YEAR",
+      rankTit: "SAFETY AGENTS OF THE YEAR",
       btnBack: "Back",
-      degrau: "STEP",
-      questao: "QUESTION",
-      vidas: "LIVES",
-      acertos: "CORRECT",
-      score: "SCORE",
-      dicaTit: "Vital Tip:",
+      hudDegrau: "STEP",
+      hudQ: "QUESTION",
+      hudVidas: "LIVES",
       btnNext: "Next",
-      avancoTit: "EXCELLENT!",
-      avancoSub: "You reached the average and promoted to:",
-      btnStartLevel: "Start Level ",
-      falhaTit: "REVIEW NEEDED",
-      falhaSub: "You did not reach 70% correct answers.<br>You lost 1 life.",
+      msgCerto: "EXCELLENT!",
+      msgSubiu: "You reached the goal and promoted to:",
+      btnFase: "Start Level ",
+      msgErro: "REVIEW NEEDED",
+      msgFalha: "You did not reach 70% correct answers.<br>You lost 1 life.",
       btnRetry: "Retry Level ",
       finalTit: "DIAMOND AGENT",
-      finalSub: "Congratulations, Agent! You have reached the maximum certification.",
-      finalScore: "Final Score:",
-      btnMenu: "Initial Menu",
-      emptyRank: "No records yet."
+      finalSub: "Congratulations Agent! You finished the trail.",
+      btnMenu: "Home"
     }
   };
 
-  // BANCO DE DADOS BILÍNGUE
-  const BANCO_COMPLETO = [
-    { 
-      cat: "NR-10", 
-      q_pt: "Qual a distância mínima de segurança para aproximação de redes de 13.8kV?", 
-      q_en: "What is the minimum safety distance for approaching 13.8kV networks?",
-      opt_pt: ["0,50m", "1,20m", "3,00m", "5,00m"], 
-      opt_en: ["0.50m", "1.20m", "3.00m", "5.00m"],
-      ok: 1, 
-      dica_pt: "Manter a distância padrão evita o risco de arco elétrico.",
-      dica_en: "Keeping the standard distance prevents the risk of electric arc."
-    },
-    { 
-      cat: "NR-06", 
-      q_pt: "O que garante legalmente a eficácia de um EPI no Brasil?", 
-      q_en: "What legally guarantees the effectiveness of a PPE in Brazil?",
-      opt_pt: ["A marca", "O preço", "O Certificado de Aprovação (CA)", "A indicação do colega"], 
-      opt_en: ["The brand", "The price", "The Approval Certificate (CA)", "Peer recommendation"],
-      ok: 2, 
-      dica_pt: "O CA é o registro obrigatório do Ministério do Trabalho.",
-      dica_en: "The CA is the mandatory registry from the Ministry of Labor."
-    },
-    { 
-      cat: "NR-35", 
-      q_pt: "A partir de qual altura é obrigatório o uso de cinto paraquedista?", 
-      q_en: "At what height is the use of a harness mandatory?",
-      opt_pt: ["1,0m", "1,5m", "2,0m", "5,0m"], 
-      opt_en: ["1.0m", "1.5m", "2.0m", "5.0m"],
-      ok: 2, 
-      dica_pt: "Trabalho em altura é todo aquele acima de 2 metros.",
-      dica_en: "Work at height is defined as anything above 2 meters."
-    },
-    { 
-      cat: "INCÊNDIO", 
-      q_pt: "Qual extintor NÃO deve ser usado em fogo elétrico energizado?", 
-      q_en: "Which extinguisher should NOT be used on energized electrical fires?",
-      opt_pt: ["CO2", "Pó Químico", "Água Pressurizada", "Halon"], 
-      opt_en: ["CO2", "Dry Chemical", "Pressurized Water", "Halon"],
-      ok: 2, 
-      dica_pt: "A água conduz energia e causa choque fatal.",
-      dica_en: "Water conducts energy and causes a fatal shock."
-    },
-    { 
-      cat: "NR-01", 
-      q_pt: "Quem é responsável por cumprir as normas de segurança na empresa?", 
-      q_en: "Who is responsible for following safety rules in the company?",
-      opt_pt: ["Apenas o RH", "Apenas o dono", "Todos os colaboradores", "Apenas o governo"], 
-      opt_en: ["Only HR", "Only the owner", "All employees", "Only the government"],
-      ok: 2, 
-      dica_pt: "Segurança é um compromisso coletivo e individual.",
-      dica_en: "Safety is a collective and individual commitment."
-    }
+  // BANCO DE DADOS
+  const BANCO = [
+    { cat: "NR-10", q_pt: "Qual a distância mínima de segurança para aproximação de redes de 13.8kV?", q_en: "What is the minimum safety distance for approaching 13.8kV networks?", opt_pt: ["0,50m", "1,20m", "3,00m", "5,00m"], opt_en: ["0.50m", "1.20m", "3.00m", "5.00m"], ok: 1, dica_pt: "Manter a distância padrão evita o risco de arco elétrico.", dica_en: "Keeping standard distance prevents electric arc risk." },
+    { cat: "NR-06", q_pt: "O que garante legalmente a eficácia de um EPI no Brasil?", q_en: "What legally guarantees the effectiveness of PPE in Brazil?", opt_pt: ["A marca", "O preço", "O CA (Certificado de Aprovação)", "A indicação"], opt_en: ["The brand", "Price", "The CA Certificate", "Peer hint"], ok: 2, dica_pt: "O CA é o registro obrigatório do Ministério do Trabalho.", dica_en: "CA is the mandatory registry from the Labor Ministry." },
+    { cat: "NR-35", q_pt: "A partir de qual altura o trabalho é considerado em altura?", q_en: "From what height is work considered 'at height'?", opt_pt: ["1,0m", "1,5m", "2,0m", "5,0m"], opt_en: ["1.0m", "1.5m", "2.0m", "5.0m"], ok: 2, dica_pt: "A NR-35 define 2 metros como o limite de segurança.", dica_en: "NR-35 defines 2 meters as the safety limit." },
+    { cat: "INCÊNDIO", q_pt: "Extintor de água é proibido em qual classe de fogo?", q_en: "Water extinguisher is forbidden in which fire class?", opt_pt: ["Classe A", "Classe B", "Classe C (Elétrico)", "Classe D"], opt_en: ["Class A", "Class B", "Class C (Electric)", "Class D"], ok: 2, dica_pt: "A água conduz eletricidade e causa choque.", dica_en: "Water conducts electricity and causes shock." }
   ];
 
-  const FASES = {
+  const FASES_LABEL = {
     pt: ["Bronze", "Prata", "Ouro", "Diamante"],
     en: ["Bronze", "Silver", "Gold", "Diamond"]
   };
-
-  const CLASSES_FASES = ["badge-bronze", "badge-prata", "badge-ouro", "badge-diamante"];
+  const FASES_CSS = ["badge-bronze", "badge-prata", "badge-ouro", "badge-diamante"];
 
   let state = {
     lang: 'pt',
@@ -259,51 +202,42 @@
     pontosTotal: 0,
     timer: 15,
     timerInt: null,
-    vidas: 3,
-    lastDate: ""
+    vidas: 3
   };
 
-  function changeLang(l) {
+  function setLang(l) {
     state.lang = l;
-    document.getElementById('btn-pt').classList.toggle('active', l === 'pt');
-    document.getElementById('btn-en').classList.toggle('active', l === 'en');
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('btn-' + l).classList.add('active');
     renderizar();
   }
 
-  function carregarProgresso() {
-    const salvo = JSON.parse(localStorage.getItem('sg_v4_multilang'));
-    const hoje = new Date().toLocaleDateString();
-    if(salvo) {
-      state.vidas = salvo.v;
-      state.lastDate = salvo.d;
-      state.nome = salvo.n || "";
-      if(state.lastDate !== hoje) { state.vidas = 3; state.lastDate = hoje; salvarLocal(); }
-    } else {
-      state.vidas = 3;
-      state.lastDate = hoje;
-    }
-    document.getElementById('btn-pt').classList.add('active');
+  function carregar() {
+    const s = JSON.parse(localStorage.getItem('sg_v5_final'));
+    const h = new Date().toLocaleDateString();
+    if(s) {
+      state.vidas = s.v;
+      state.nome = s.n || "";
+      if(s.d !== h) { state.vidas = 3; salvar(); }
+    } else { salvar(); }
+    setLang('pt');
   }
 
-  function salvarLocal() {
-    localStorage.setItem('sg_v4_multilang', JSON.stringify({ v: state.vidas, d: state.lastDate, n: state.nome }));
+  function salvar() {
+    localStorage.setItem('sg_v5_final', JSON.stringify({ v: state.vidas, d: new Date().toLocaleDateString(), n: state.nome }));
   }
 
-  function shuffle(array) {
-    return array.sort(() => Math.random() - 0.5);
-  }
-
-  function iniciarTrilha() {
-    if(state.vidas <= 0) return alert(state.lang === 'pt' ? "Vidas esgotadas!" : "Lives exhausted!");
+  function iniciar() {
+    if(state.vidas <= 0) return alert(state.lang==='pt'?'Vidas esgotadas!':'Out of lives!');
     const n = document.getElementById('nomeIn').value.trim();
-    if(!n) return alert(state.lang === 'pt' ? "Digite seu nome." : "Enter your name.");
+    if(!n) return alert(state.lang==='pt'?'Digite seu nome':'Enter your name');
     state.nome = n;
-    salvarLocal();
+    salvar();
     prepararFase();
   }
 
   function prepararFase() {
-    state.questoesRodada = shuffle([...BANCO_COMPLETO]); 
+    state.questoesRodada = BANCO.sort(() => Math.random() - 0.5);
     state.degrau = 1;
     state.perguntaNoDegrau = 1;
     state.acertosFase = 0;
@@ -322,12 +256,12 @@
         state.timer -= 0.1;
         const b = document.querySelector('.timer-barra');
         if(b) b.style.width = (state.timer / 15) * 100 + '%';
-        if(state.timer <= 0) resolver(null);
+        if(state.timer <= 0) responder(null);
       }
     }, 100);
   }
 
-  function resolver(idx) {
+  function responder(idx) {
     if(state.respondido) return;
     state.respondido = true;
     state.escolha = idx;
@@ -343,10 +277,8 @@
   function proxima() {
     if (state.perguntaNoDegrau < 10) state.perguntaNoDegrau++;
     else { state.perguntaNoDegrau = 1; state.degrau++; }
-    
     state.indexQuestaoLocal++;
 
-    // Meta de 10 p/ teste rápido, mude para 100 no real
     if(state.indexQuestaoLocal >= 10 || state.indexQuestaoLocal >= state.questoesRodada.length) {
       validarAprovacao();
     } else {
@@ -359,70 +291,55 @@
 
   function validarAprovacao() {
     const media = (state.acertosFase / state.indexQuestaoLocal) * 100;
-    if(media === 100) { state.vidas = 3; salvarLocal(); }
-
+    if(media === 100) { state.vidas = 3; salvar(); }
     if(media >= 70) {
-      if(state.faseIdx < 3) {
-        state.faseIdx++;
-        state.tela = 'avanco';
-      } else {
-        finalizar();
-      }
+      if(state.faseIdx < 3) { state.faseIdx++; state.tela = 'avanco'; }
+      else { finalizar(); }
     } else {
-      state.vidas--;
-      salvarLocal();
-      state.tela = 'falha';
+      state.vidas--; salvar(); state.tela = 'falha';
     }
     renderizar();
   }
 
   function finalizar() {
     state.tela = 'final';
-    let rk = JSON.parse(localStorage.getItem('sg_global_ranking')) || [];
+    let rk = JSON.parse(localStorage.getItem('sg_global_rank_v5')) || [];
     rk.push({ n: state.nome, p: state.pontosTotal });
     rk.sort((a,b) => b.p - a.p);
-    localStorage.setItem('sg_global_ranking', JSON.stringify(rk.slice(0,5)));
+    localStorage.setItem('sg_global_rank_v5', JSON.stringify(rk.slice(0,5)));
   }
 
   function renderizar() {
     const app = document.getElementById('app');
-    const txt = I18N[state.lang];
-    const faseNome = FASES[state.lang][state.faseIdx];
-    const faseCor = CLASSES_FASES[state.faseIdx];
+    const t = I18N[state.lang];
+    const fNome = FASES_LABEL[state.lang][state.faseIdx];
+    const fCss = FASES_CSS[state.faseIdx];
 
     if(state.tela === 'inicio') {
       app.innerHTML = `
         <div class="tela">
           <div class="personagem-container"><img src="vital.png" class="personagem-img"></div>
-          <div class="frase-vital">${txt.welcome}</div>
-          <input type="text" id="nomeIn" class="campo-nome" placeholder="${txt.placeholder}" value="${state.nome}">
-          <button class="btn-principal" onclick="iniciarTrilha()" ${state.vidas <= 0 ? 'disabled' : ''}>
-            ${state.vidas <= 0 ? (state.lang === 'pt' ? 'Vidas Esgotadas' : 'No Lives') : txt.btnStart}
-          </button>
-          <button class="btn-principal btn-secundario" onclick="state.tela='ranking'; renderizar()">${txt.btnRank}</button>
+          <div class="frase-vital">${t.welcome}</div>
+          <input type="text" id="nomeIn" class="campo-nome" placeholder="${t.placeholder}" value="${state.nome}">
+          <button class="btn-principal" onclick="iniciar()" ${state.vidas <= 0 ? 'disabled' : ''}>${state.vidas <= 0 ? '---' : t.btnStart}</button>
+          <button class="btn-principal btn-secundario" onclick="state.tela='ranking'; renderizar()">${t.btnRank}</button>
           
           <div class="rodape-home">
-            <img src="logo.png" alt="SGBH">
+            <img src="sgbh2.jpg.jpg" alt="SGBH Logo">
             <p>STATE GRID BRAZIL HOLDING S.A.</p>
           </div>
         </div>`;
     }
 
     else if(state.tela === 'ranking') {
-      const lista = JSON.parse(localStorage.getItem('sg_global_ranking')) || [];
+      const lista = JSON.parse(localStorage.getItem('sg_global_rank_v5')) || [];
       app.innerHTML = `
         <div class="tela">
-          <h3 style="font-family:'Orbitron'; text-align:center; margin-bottom:20px; color:var(--sg-green)">${txt.rankTitle}</h3>
+          <h3 style="font-family:'Orbitron'; text-align:center; margin-bottom:20px; color:var(--sg-green)">${t.rankTit}</h3>
           <div class="ranking-lista">
-            ${lista.map((r,i) => `
-              <div class="ranking-item">
-                <span class="rk-nome">${i+1}º ${r.n}</span>
-                <span class="rk-score">${r.p}</span>
-              </div>
-            `).join('')}
-            ${lista.length === 0 ? `<p style="text-align:center; opacity:0.5">${txt.emptyRank}</p>` : ''}
+            ${lista.map((r,i) => `<div class="ranking-item"><span class="rk-nome">${i+1}º ${r.n}</span><span class="rk-score">${r.p}</span></div>`).join('')}
           </div>
-          <button class="btn-principal" onclick="state.tela='inicio'; renderizar()">${txt.btnBack}</button>
+          <button class="btn-principal" onclick="state.tela='inicio'; renderizar()">${t.btnBack}</button>
         </div>`;
     }
 
@@ -430,66 +347,59 @@
       const q = state.questoesRodada[state.indexQuestaoLocal];
       app.innerHTML = `
         <div class="tela">
-          <div style="text-align:center"><span class="badge ${faseCor}">${faseNome}</span></div>
+          <div style="text-align:center"><span class="badge ${fCss}">${fNome}</span></div>
           <div class="hud-carreira">
-            <div class="hud-box"><span class="hud-label">${txt.degrau}</span><span class="hud-val">${state.degrau}/10</span></div>
-            <div class="hud-box"><span class="hud-label">${txt.questao}</span><span class="hud-val">${state.perguntaNoDegrau}/10</span></div>
-            <div class="hud-box"><span class="hud-label">${txt.vidas}</span><span class="hud-val">${'❤️'.repeat(state.vidas)}</span></div>
+            <div class="hud-box"><span class="hud-label">${t.hudDegrau}</span><span class="hud-val">${state.degrau}/10</span></div>
+            <div class="hud-box"><span class="hud-label">${t.hudQ}</span><span class="hud-val">${state.perguntaNoDegrau}/10</span></div>
+            <div class="hud-box"><span class="hud-label">${t.hudVidas}</span><span class="hud-val">${'❤️'.repeat(state.vidas)}</span></div>
           </div>
           <div class="timer-barra"></div>
           <div class="pergunta-card">
-            <div class="pergunta-texto">${state.lang === 'pt' ? q.q_pt : q.q_en}</div>
+            <div class="pergunta-texto">${state.lang==='pt'?q.q_pt:q.q_en}</div>
           </div>
           <div class="opcoes-grid">
-            ${(state.lang === 'pt' ? q.opt_pt : q.opt_en).map((o,i) => {
+            ${(state.lang==='pt'?q.opt_pt:q.opt_en).map((o,i) => {
               let cl = state.respondido ? (i === q.ok ? 'certo' : (state.escolha === i ? 'errado' : '')) : '';
-              return `<button class="btn-opcao ${cl}" onclick="resolver(${i})" ${state.respondido?'disabled':''}>
+              return `<button class="btn-opcao ${cl}" onclick="responder(${i})" ${state.respondido?'disabled':''}>
                 <span class="letra">${String.fromCharCode(65+i)}</span> ${o}
               </button>`;
             }).join('')}
           </div>
-          ${state.respondido ? `<div class="dica-box"><b>${txt.dicaTit}</b> ${state.lang === 'pt' ? q.dica_pt : q.dica_en}</div><button class="btn-principal" onclick="proxima()">${txt.btnNext}</button>` : ''}
+          ${state.respondido ? `<div class="dica-box"><b>${state.lang==='pt'?'Dica:':'Tip:'}</b> ${state.lang==='pt'?q.dica_pt:q.dica_en}</div><button class="btn-principal" onclick="proxima()">${t.btnNext}</button>` : ''}
         </div>`;
     }
 
     else if(state.tela === 'avanco') {
       app.innerHTML = `
         <div class="tela" style="text-align:center; justify-content: center;">
-          <div class="personagem-container"><img src="vital.png" style="width:110px"></div>
-          <h2 style="color:var(--sg-green)">${txt.avancoTit}</h2>
-          <p>${txt.avancoSub}</p>
-          <h1 style="font-family:'Orbitron'; margin:20px 0; color:var(--sg-green)">${faseNome.toUpperCase()}</h1>
-          <button class="btn-principal" onclick="prepararFase()">${txt.btnStartLevel} ${faseNome}</button>
+          <h2 style="color:var(--sg-green)">${t.msgCerto}</h2>
+          <p>${t.msgSubiu}</p>
+          <h1 style="font-family:'Orbitron'; margin:20px 0">${fNome}</h1>
+          <button class="btn-principal" onclick="prepararFase()">${t.btnFase}${fNome}</button>
         </div>`;
     }
 
     else if(state.tela === 'falha') {
       app.innerHTML = `
         <div class="tela" style="text-align:center; justify-content: center;">
-          <h2 style="color:var(--cor-errado)">${txt.falhaTit}</h2>
-          <p style="margin: 10px 0">${txt.falhaSub}</p>
-          <div class="personagem-container"><img src="vital.png" style="width:100px; filter:grayscale(1)"></div>
-          <button class="btn-principal" onclick="prepararFase()">${state.vidas > 0 ? txt.btnRetry + faseNome : txt.btnBack}</button>
+          <h2 style="color:var(--cor-errado)">${t.msgErro}</h2>
+          <p>${t.msgFalha}</p>
+          <button class="btn-principal" onclick="state.vidas > 0 ? prepararFase() : location.reload()">${state.vidas > 0 ? t.btnRetry + fNome : t.btnBack}</button>
         </div>`;
     }
 
     else if(state.tela === 'final') {
       app.innerHTML = `
         <div class="tela" style="text-align:center; justify-content: center;">
-          <div class="personagem-container"><img src="vital.png" style="width:130px"></div>
-          <h1 style="font-family:'Orbitron'; color:var(--cor-diamante); font-size:22px">${txt.finalTit}</h1>
-          <p>${txt.finalSub}</p>
-          <div class="pergunta-card">
-            <p>${txt.finalScore}</p>
-            <h1 style="color:var(--sg-green)">${state.pontosTotal}</h1>
-          </div>
-          <button class="btn-principal" onclick="location.reload()">${txt.btnMenu}</button>
+          <h1 style="font-family:'Orbitron'; color:var(--cor-diamante)">${t.finalTit}</h1>
+          <p>${t.finalSub}</p>
+          <h1 style="font-size:50px; color:var(--sg-green); margin: 20px 0;">${state.pontosTotal}</h1>
+          <button class="btn-principal" onclick="location.reload()">${t.btnMenu}</button>
         </div>`;
     }
   }
 
-  carregarProgresso();
-  renderizar();
+  carregar();
 </script>
 </body>
 </html>
